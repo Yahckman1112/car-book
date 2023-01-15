@@ -1,17 +1,16 @@
-import React from 'react';
-import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react';
-function FormInput({children,type,placeHolder}) {
-    return (
-        <div>
-                  <InputGroup>
-    <InputLeftElement
-      pointerEvents='none'
-      children={children}
-    />
-    <Input size='lg' type={type} placeholder={placeHolder} />
-  </InputGroup>  
-        </div>
-    );
+import React from "react";
+import { FormGroup, Input, Label } from "reactstrap";
+import styles from './input.module.scss'
+
+function FormInput({label, placeholder, type }) {
+  return (
+    <div>
+      <FormGroup>
+        <Label className={styles.label}>{label}</Label>
+        <Input name="email" placeholder={placeholder} type={type}/>
+      </FormGroup>
+    </div>
+  );
 }
 
-export default FormInput;       
+export default FormInput;
