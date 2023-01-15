@@ -13,6 +13,7 @@
 // }
 
 $primary-color:#fff;
+$frequent-color:#1089ff;
 
 @mixin responsive($breakpoint){
     @if $breakpoint==phone{

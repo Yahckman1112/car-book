@@ -5,11 +5,12 @@
     background-color: $primary-color;
     height: 80vh;
     margin-bottom: 10px;
-    box-shadow:3px 5px 5px rgba(0, 0, 0, 0.327);
+    box-shadow:2px 3px 5px rgba(0, 0, 0, 0.327);
     margin-top: 80px;
     // z-index: 1;
     // line-height: 3;
 }
+//box-shadow: 5px 12px -1px rgb(0 0 0 / 3%)
 
 .form{
     background-color: #1089ff;
@@ -34,7 +35,41 @@
 .btn{
     background: #01d28e !important;
     color: $primary-color;
-    padding:10px 138px ;
-   
-   
+    padding:10px 138px ; 
+}
+
+// side 2
+
+.car{
+    padding: 4em 3em;
+
+    
+
+
+    &_para1{
+        font-size: 30px;
+        font-weight: 700;
+       
+    }
+}
+
+.car_logo{
+    margin-top: 100px;
+}
+
+.logos{
+    width: 90px;
+    height: 90px;
+    justify-content: center;
+    display: flex;
+    display: inline-block;
+    align-items: center;
+    margin-left: 10px;
+    font-size: 40px !important;
+    color: $frequent-color;
+    padding: 50px;
+    outline-offset: 15px;
+    outline: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    margin-right: 100px;
 }
