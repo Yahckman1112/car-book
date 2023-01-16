@@ -16,14 +16,11 @@ $primary-color:#fff;
 $frequent-color:#1089ff;
 
 @mixin responsive($breakpoint){
-    @if $breakpoint==phone{
+    @if $breakpoint==tab{
       @media screen and (max-width:430px) {@content }
     }
-    @If $breakpoint == tab{
+    @If $breakpoint == phone{
       @media screen and (max-width:768px) {@content }
     }
 }
 
-// html{
-//   font-size: 62.54%;
-// }

@@ -4,7 +4,7 @@
   background-color: $primary-color;
   height: 70vh;
   margin-bottom: 10px;
-  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.327);
+//   box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.327);
   margin-top: 80px;
   // z-index: 1;
   // line-height: 3;
@@ -23,22 +23,38 @@
   font-weight: 400;
   color: #999999;
 
+  @media screen and (max-width: 768px) {
+    height: auto;
+    border-radius: 5px;
+    line-height: 1.6;
+    width: 280px;
+  }
+  @media screen and (max-width: 430px) {
+   margin-left: 0px;
+    // width: 280px;
+    width: 100%;
+  }
+
 }
 
 .para1 {
   font-weight: bold;
   font-size: 1.6rem;
   color: $primary-color;
-
-  @include responsive(tab){
-    font-size: 1.5rem;
-  }
 }
 
 .btn {
   background: #01d28e !important;
   color: $primary-color;
   padding: 10px 138px;
+  border-radius: 5px;
+
+  @media screen and (max-width: 768px) {
+   padding: 10px 82px;
+  }
+  @media screen and (max-width: 439px) {
+   padding: 10px 143px;
+  }
 }
 
 // side 2
@@ -46,18 +62,35 @@
 .car {
   padding: 4em 3em;
 
+  @media screen and (max-width: 768px) {
+    padding: 2em 1.5em;
+  }
+
   &_para1 {
     font-size: 30px;
     font-weight: 700;
+    @media screen and (max-width: 768px) {
+      font-size: 20px;
+    }
+    @media screen and (max-width: 430px) {
+      font-size: 18px;
+      
+      text-align: center;
+    }
   }
 }
 
 .car_logo {
   margin-top: 50px;
-  font-size: 10px;
   align-items: center;
-}
 
+  @media screen and (max-width: 768px) {
+   margin-left: 10px;
+  }
+
+  
+  
+}
 
 .logo_text {
   font-size: 19px;
@@ -65,6 +98,17 @@
   padding-top: 30px;
   text-align: center;
   margin-left: -35px !important;
+  @media screen and (max-width: 768px) {
+   font-size: 17px;
+//    font-weight: 500;
+//    margin-left: 0;
+
+  }
+  @media screen and (max-width: 430px) {
+   text-align: center;
+
+  }
+
 }
 
 .logos {
@@ -76,18 +120,34 @@
   border-radius: 50%;
   margin-right: 1300px;
   margin-left: 50px;
+  @media screen and (max-width: 768px) {
+    font-size: 30px !important;
+    outline-offset: 15px;
+    margin-left: 27px;
+    margin-right: 1800px;
+
+  }
+  @media screen and (max-width: 430px) {
+   
+    margin-left:40%;
+    margin-top: 20px;
+    margin-right: 1800px;
+
+  }
 }
 
-.logo_btn{
-    font-size: 17px;
-    font-weight: 500;
-    background-color: $frequent-color;
-    color: white;
-    padding: 14px 30px;
-    width: 40%;
-    margin-top: 40px;
-    border-radius: 7px;
-    text-align: center;
+.logo_btn {
+  font-size: 17px;
+  font-weight: 500;
+  background-color: $frequent-color;
+  color: white;
+  padding: 14px 30px;
+  width: 40%;
+  margin-top: 40px;
+  border-radius: 7px;
+  text-align: center;
 
-    
+  @media screen and (max-width: 768px) {
+   width: 350px;
+  }
 }

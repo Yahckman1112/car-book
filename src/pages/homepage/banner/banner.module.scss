@@ -1,44 +1,48 @@
-@import './../../../index.scss';
+@import "./../../../index.scss";
 
+.banner {
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.4)
+    ),
+    url("./../../../assets/pexels-mike-b-120049.jpg");
+  height: 100vh;
+  background-size: cover;
+  background-position: top;
+  text-align: center;
+  padding-top: 8%;
+  padding-left: 70px;
+  padding-right: 70px;
+  color: $primary-color;
+  clip-path: polygon(100% 0, 100% 38%, 100% 90%, 0 100%, 0 0);
 
-.banner{
-    background-image: linear-gradient(to right bottom , rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)) , url('./../../../assets/pexels-mike-b-120049.jpg');
-    height: 100vh;
-    background-size: cover;
-    background-position: top; 
-    text-align: center;
-    padding-top: 8%;
-    padding-left:70px;
-    padding-right:70px;
-    color: $primary-color;
-    clip-path: polygon(100% 0, 100% 38%, 100% 90%, 0 100%, 0 0)
+  
 }
 
-.para1{
-    font-size: 3.9rem;
-    font-weight: 700;
+.para1 {
+  font-size: 3.9rem;
+  font-weight: 700;
 }
 
-.para2{
-    // width: 80%;
-    font-size: 1.6rem;
-    text-align: center;
+.para2 {
+  // width: 80%;
+  font-size: 1.6rem;
+  text-align: center;
 
-    &_main{
-        display: block;
-    }
-    &_sub{
-        display: block;
-    }
+  &_main {
+    display: block;
+  }
+  &_sub {
+    display: block;
+  }
 }
 
-.book{
-    height: 80% !important;
-    color: $primary-color;  
+.book {
+  height: 80% !important;
+  color: $primary-color;
 }
 
-
-.form{
-    background-color:  #6610f2;
-    
+.form {
+  background-color: #6610f2;
 }

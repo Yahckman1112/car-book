@@ -40,17 +40,17 @@ function Book(props) {
 
               <div className={styles.car_logo}>
                 <div className="row">
-                  <div className={`col-12 col-lg-4 ${styles.logo}`}>
+                  <div className={`col-12 col-lg-4 col-md-4 ${styles.logo}`}>
                     <RiUserLocationFill className={`${styles.logos}`} />
                     <p className={styles.logo_text}>
                       Choose Your Pickup Location
                     </p>
                   </div>
-                  <div className={`col-12 col-lg-4 ${styles.logo}`}>
+                  <div className={`col-12 col-lg-4 col-md-4 ${styles.logo}`}>
                     <FaRegHandshake className={`${styles.logos}`} />
                     <p className={styles.logo_text}>Select the Best Deal</p>
                   </div>
-                  <div className={`col-12 col-lg-4 ${styles.logo}`}>
+                  <div className={`col-12 col-lg-4 col-md-4 ${styles.logo}`}>
                     <AiOutlineCar className={`${styles.logos}`} />
                     <p className={styles.logo_text}>Reserve Your Rental Car</p>
                   </div>
