@@ -1,75 +1,93 @@
+@import "./../../../index.scss";
 
-@import './../../../index.scss';
-
-.book{
-    background-color: $primary-color;
-    height: 80vh;
-    margin-bottom: 10px;
-    box-shadow:2px 3px 5px rgba(0, 0, 0, 0.327);
-    margin-top: 80px;
-    // z-index: 1;
-    // line-height: 3;
+.book {
+  background-color: $primary-color;
+  height: 70vh;
+  margin-bottom: 10px;
+  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.327);
+  margin-top: 80px;
+  // z-index: 1;
+  // line-height: 3;
 }
 //box-shadow: 5px 12px -1px rgb(0 0 0 / 3%)
 
-.form{
-    background-color: #1089ff;
-    height: 90vh;
-    padding: 30px;
-    margin-top: -2rem;
-    margin-left: -2rem;
-    border-radius: 10px;
-    font-size: 16px;
-    line-height: 1.8;
-    font-weight: 400;
-    color: #999999;
+.form {
+  background-color: #1089ff;
+  height: 90vh;
+  padding: 30px;
+  margin-top: -3rem;
+  margin-left: -2rem;
+  border-radius: 10px;
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: 400;
+  color: #999999;
 
 }
 
-.para1{
-    font-weight: bold;
-    font-size: 1.6rem;
-    color: $primary-color;
+.para1 {
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: $primary-color;
+
+  @include responsive(tab){
+    font-size: 1.5rem;
+  }
 }
 
-.btn{
-    background: #01d28e !important;
-    color: $primary-color;
-    padding:10px 138px ; 
+.btn {
+  background: #01d28e !important;
+  color: $primary-color;
+  padding: 10px 138px;
 }
 
 // side 2
 
-.car{
-    padding: 4em 3em;
+.car {
+  padding: 4em 3em;
+
+  &_para1 {
+    font-size: 30px;
+    font-weight: 700;
+  }
+}
+
+.car_logo {
+  margin-top: 50px;
+  font-size: 10px;
+  align-items: center;
+}
+
+
+.logo_text {
+  font-size: 19px;
+  font-weight: 500;
+  padding-top: 30px;
+  text-align: center;
+  margin-left: -35px !important;
+}
+
+.logos {
+  justify-content: center;
+  font-size: 50px !important;
+  color: $frequent-color;
+  outline-offset: 20px;
+  outline: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  margin-right: 1300px;
+  margin-left: 50px;
+}
+
+.logo_btn{
+    font-size: 17px;
+    font-weight: 500;
+    background-color: $frequent-color;
+    color: white;
+    padding: 14px 30px;
+    width: 40%;
+    margin-top: 40px;
+    border-radius: 7px;
+    text-align: center;
 
     
-
-
-    &_para1{
-        font-size: 30px;
-        font-weight: 700;
-       
-    }
-}
-
-.car_logo{
-    margin-top: 100px;
-}
-
-.logos{
-    width: 90px;
-    height: 90px;
-    justify-content: center;
-    display: flex;
-    display: inline-block;
-    align-items: center;
-    margin-left: 10px;
-    font-size: 40px !important;
-    color: $frequent-color;
-    padding: 50px;
-    outline-offset: 15px;
-    outline: 1px solid rgba(0, 0, 0, 0.05);
-    border-radius: 50%;
-    margin-right: 100px;
 }
