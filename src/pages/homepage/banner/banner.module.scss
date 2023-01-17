@@ -17,24 +17,31 @@
   color: $primary-color;
   clip-path: polygon(100% 0, 100% 38%, 100% 90%, 0 100%, 0 0);
 
-  
+  @media screen and (max-width: 768px) {
+    height: 80vh;
+    background-position: center;
+    clip-path: polygon(100% 0, 100% 38%, 100% 95%, 0 100%, 0 0);
+  }
 }
 
 .para1 {
   font-size: 3.9rem;
   font-weight: 700;
+
+  @media screen and (max-width: 768px) {
+    font-size: 35px;
+  }
 }
 
 .para2 {
   // width: 80%;
   font-size: 1.6rem;
   text-align: center;
-
-  &_main {
-    display: block;
+  @media screen and (max-width: 768px) {
+    font-size: 1.2rem !important;
   }
-  &_sub {
-    display: block;
+  @media screen and (max-width: 430px) {
+    display: inline-flex;
   }
 }
 
