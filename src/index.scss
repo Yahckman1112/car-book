@@ -15,12 +15,13 @@
 $primary-color:#fff;
 $frequent-color:#1089ff;
 
-@mixin responsive($breakpoint){
-    @if $breakpoint==tab{
-      @media screen and (max-width:430px) {@content }
-    }
-    @If $breakpoint == phone{
-      @media screen and (max-width:768px) {@content }
-    }
+@mixin responsive($breakPoint) {
+  @if $breakPoint==tab {
+      @media screen and (max-width:768px){@content}
+  }
+  @if $breakPoint==phone {
+      @media screen and (max-width:430px){@content}
+  }
+
 }
 
