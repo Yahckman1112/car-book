@@ -1,0 +1,118 @@
+@import "../../../index.scss";
+
+.feture {
+  padding-top: 200px;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.para1 {
+  margin-bottom: 5px;
+  color: $frequent-color;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.para2 {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.8);
+}
+// // card
+// .cards{
+//     height: auto !important;
+//     // background-color: black !important;
+// }
+// .card{
+//     font-size: 23px !important;
+
+//     &_para1 {
+//       color: black;
+//       //    letter-spacing: 1px !important;
+
+//     }
+
+//     &_para2{
+//         padding-right: 240px !important;
+//         font-size: 18px;
+//         font-weight: 400;
+//         color: rgba(0, 0, 0, 0.2);
+//     }
+
+//     &_para3{
+//         font-size: 18px;
+//         font-weight: 700;
+//         color: $frequent-color;
+
+//         &_sub{
+
+//             font-size: 15px;
+//             color: rgba(0, 0, 0, 0.2);
+//         }
+
+//     }
+
+// }
+
+// // .btn{
+
+// // }
+
+// .btn_book{
+//     padding: 10px 50px;
+//     background-color: $frequent-color;
+// }
+
+.card {
+  &_para1 {
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+  &_para2 {
+    padding-right: 170px !important;
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.2);
+  }
+
+  &_para3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: $frequent-color;
+
+    &_sub {
+      font-size: 15px;
+      color: rgba(0, 0, 0, 0.2);
+    }
+  }
+
+}
+
+.card_btn{
+    padding-top: 20px;
+}
+.card_btn_book{
+    background-color: $frequent-color;
+    padding: 10px 55px;
+    margin-right: 10px;
+    border-radius: 4px;
+    color: $primary-color;
+    font-size: 18px;
+    font-weight: 600;
+
+    &:hover{
+        text-decoration: none;
+        color: white
+    }
+}
+
+.card_btn_det{
+    @extend .card_btn_book;
+    margin-right: 0px;
+    background-color: #01d28e;
+}
