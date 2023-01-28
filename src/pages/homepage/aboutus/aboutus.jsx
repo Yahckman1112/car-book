@@ -3,12 +3,12 @@ import styles from "./aboutus.module.scss";
 function Aboutus(props) {
   return (
     <div className={styles.about}>
-      <div className="container">
+   
         <div className="row no-gutters">
           <div className={styles.about_container}></div>
-          <div className={`col-sm-6 ${styles.about_image}`}></div>
+          <div className={`col-12 col-lg-6 col-md-6 ${styles.about_image}`}></div>
 
-          <div className={`col-sm-6 ${styles.about_text}`}>
+          <div className={`col-12 col-lg-6 col-md-6 ${styles.about_text}`}>
             <p className={styles.sub_head}>About us</p>
             <p className={styles.head}>Welcome to Carbook </p>
             <div className={styles.paras}>
@@ -28,9 +28,14 @@ function Aboutus(props) {
                 parts of sentences fly into your mouth.
               </p>
             </div>
+
+              <p className={styles.search_btn}>
+            <a href="#" >
+            Search Vehicle
+            </a>
+              </p>
           </div>
         </div>
-      </div>
     </div>
   );
 }

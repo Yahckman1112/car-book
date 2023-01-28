@@ -2,22 +2,44 @@
 
 .about {
   background: linear-gradient(90deg, white 50%, #01d28e 50%);
-  padding: 6rem;
+  padding: 5rem;
   height: 110vh;
 
+  @include responsive(tab){
+    padding: 2rem;
+    height: auto;
+
+    @include responsive(phone){
+        background: linear-gradient(90deg, #01d28e 50%, #01d28e 50%);
+
+    }
+  }
 
 }
 
 .about_image {
-  height: 500px;
+  height: 550px;
   background-image: url(./../../../assets/about.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  //   margin-left: 20px;
+
+  @include responsive(tab){
+    height: 800px;
+  }
+ 
+  @include responsive(phone){
+    height: 500px;
+  }
+ 
+
 }
 .about_text {
   padding: 20px;
+  
+  @include responsive(tab){
+    padding: 10px;
+  }
 }
 
 .sub_head {
@@ -27,6 +49,8 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   line-height: 1.7;
+
+
 }
 
 .head {
@@ -40,10 +64,24 @@
   @extend .sub_head;
   text-transform: none;
   font-weight: 600;
-//   text-align: justify;
   font-size: 17px;
+
+  @include responsive(tab){
+    font-size: 16px;
+  }
 }
 
 .para_1 {
   margin-bottom: 20px;
+}
+
+.search_btn{
+    background-color: $frequent-color;
+    color: $primary-color;
+    padding: 15px 20px;
+    width: 200px;
+    text-align: center;
+    border-radius: 6px;
+    margin-top: 10px;
+    
 }
