@@ -1,9 +1,16 @@
 @import "../../../index.scss";
 
 .feture {
+  // height: 70vh;
   padding-top: 200px;
+  padding-bottom: 200px;
   text-align: center;
   line-height: 1.8;
+  @include responsive(tab){
+    padding-top: 10px ;
+    padding-bottom: 25px;
+    height: auto;
+  }
 }
 
 .para1 {
@@ -21,50 +28,7 @@
   line-height: 1.5;
   color: rgba(0, 0, 0, 0.8);
 }
-// // card
-// .cards{
-//     height: auto !important;
-//     // background-color: black !important;
-// }
-// .card{
-//     font-size: 23px !important;
 
-//     &_para1 {
-//       color: black;
-//       //    letter-spacing: 1px !important;
-
-//     }
-
-//     &_para2{
-//         padding-right: 240px !important;
-//         font-size: 18px;
-//         font-weight: 400;
-//         color: rgba(0, 0, 0, 0.2);
-//     }
-
-//     &_para3{
-//         font-size: 18px;
-//         font-weight: 700;
-//         color: $frequent-color;
-
-//         &_sub{
-
-//             font-size: 15px;
-//             color: rgba(0, 0, 0, 0.2);
-//         }
-
-//     }
-
-// }
-
-// // .btn{
-
-// // }
-
-// .btn_book{
-//     padding: 10px 50px;
-//     background-color: $frequent-color;
-// }
 
 .card {
   &_para1 {
@@ -98,7 +62,7 @@
 }
 .card_btn_book{
     background-color: $frequent-color;
-    padding: 10px 55px;
+    padding: 10px 40px;
     margin-right: 10px;
     border-radius: 4px;
     color: $primary-color;
