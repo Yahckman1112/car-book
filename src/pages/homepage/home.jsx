@@ -3,6 +3,7 @@ import Banner from "./banner/banner";
 import Book from "./book/book";
 import Feture from "./feature/feture";
 import Aboutus from "./aboutus/aboutus";
+import Services from './services/services';
 
 function Home(props) {
   return (
@@ -11,6 +12,7 @@ function Home(props) {
       <Book />
       <Feture />
       <Aboutus />
+      < Services/>
     </div>
   );
 }

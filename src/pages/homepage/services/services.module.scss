@@ -1,0 +1,77 @@
+@import "./../../../index.scss";
+
+.service {
+  padding-top: 200px;
+  padding-bottom: 100px;
+  text-align: center;
+  line-height: 1.8;
+
+  @include responsive(phone){
+    padding-top: 100px;
+  }
+}
+
+.para1 {
+  margin-bottom: 5px;
+  color: $frequent-color;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.para2 {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+
+.logo{
+
+  width: 80px;
+  height: 80px;
+  padding: 20px;
+  border-radius: 50%;
+  background-color: $frequent-color;
+  color: $primary-color ;
+  margin-left: 40%;
+  margin-top: 20px;
+  @include responsive(tab){
+    margin-left: 30%;
+  }
+  @include responsive(phone){
+    margin-left: 43%;
+    width: 60px;
+    height: 60px;
+    margin-top: 20px;
+    padding: 10px;
+    
+  }
+
+  
+ 
+
+  
+}
+
+.logo_head {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 3;
+  color: rgba(0, 0, 0, 0.8);
+  padding-top: 5px;
+
+  @include responsive(tab){
+    font-size: 10px;
+  }
+}
+.logo_text {
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 400;
+  color: #999999;
+  margin-top: 1px;
+}
