@@ -1,0 +1,9 @@
+
+.hideOnMoble{
+    visibility: visible;
+   @media screen and (max-width:430) {
+    visibility: visible;
+   }
+  
+  }
+  
