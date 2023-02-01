@@ -14,7 +14,7 @@
 
 $primary-color:#fff;
 $frequent-color:#1089ff;
-
+$frequent-color1: #01d28e;
 @mixin responsive($breakPoint) {
   @if $breakPoint==tab {
       @media screen and (max-width:768px){@content}

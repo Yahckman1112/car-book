@@ -75,3 +75,57 @@
   color: #999999;
   margin-top: 1px;
 }
+
+
+.service_footer{
+  margin-top: 70px ;
+  background-color: $frequent-color1;
+  width: 100%;
+}
+
+.footer_body{
+  height: 350px;
+  display: flex;
+
+  &_main{
+    width: 25%;
+
+  }
+
+
+
+  &_sub{
+    flex: 1;
+    background-color: white;
+    background-image: linear-gradient(to right, rgba(0,0,0,.5), rgba(0,0,0,.5)),url(../../../assets/about.jpg);
+    clip-path: polygon(21% 0, 100% 0, 100% 100%, 0 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:top;
+    padding: 20px;
+    font-size: 40px ;
+    color: $primary-color;
+    text-align: center;
+ 
+  }
+}
+
+.footer_content{
+ 
+  width: 70%;
+  // margin-left: 200px;
+  // margin: ;
+  margin: 7% auto;
+
+  &_para{
+    font-weight: 700;
+  }
+
+
+
+}
+
+
+// .footer_content_para{
+//     width: ;
+// }
