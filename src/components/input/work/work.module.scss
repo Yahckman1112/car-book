@@ -1,0 +1,37 @@
+@import "../../../index.scss";
+
+.work {
+  background-color: #f8f9fa;
+//   background-color: #246fba;
+  height: 40vh;
+  display: flex;
+  justify-content: space-between;
+//   padding: 1rem;
+}
+
+.works {
+    text-align: center;
+    padding: 40px;
+    padding-top: 90px;
+    
+    
+    
+  &_main {
+    font-weight: 300;
+    font-size: 50px;
+    color: #1089ff;
+    // opacity: 0 !important;
+}
+
+
+
+&_sub{
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 10px;
+    line-height: 1.2;
+    padding-left: 15px;
+    
+   
+  }
+}
