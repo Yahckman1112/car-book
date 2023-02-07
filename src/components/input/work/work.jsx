@@ -21,32 +21,35 @@ function Work(props) {
         },
     ]
   return (
-   <div>
+   <div className="row">
 
    
 
-    <div className={styles.work}>
+    {/* <div className={` row ${styles.work}`}>
+        <div className="col-12 col-lg-3 col-md-6">
         {data.map((item,i)=>(
-
-      <p className={styles.works}>
+                
+            <p className={styles.works}>
         <span className={styles.works_main}>< CountUp  duration={5} end={item.num}/></span>
         <span className={styles.works_sub}> {item.text} </span>
       </p>
         ))}
-      {/* <p className={styles.works}>
-        <span className={styles.works_main}>1,090</span>
-        <span className={styles.works_sub}> Total cars </span>
-      </p>
-      <p className={styles.works}>
-        <span className={styles.works_main}>2,590</span>
-        <span className={styles.works_sub}> Happy customer</span>
-      </p>
-      <p className={styles.works}>
-        <span className={styles.works_main}>67</span>
-        <span className={styles.works_sub}> Total Branches</span>
-      </p> */}
-    </div>
+        </div>
  
+        </div> */}
+    <div className={`row ${styles.work}`}>
+        {data.map((item,i)=>(
+        <div className="col-12 col-lg-3 col-md-6">
+            
+                
+                <p className={styles.works}>
+            <span className={styles.works_main}>< CountUp  duration={5} end={item.num}/></span>
+            <span className={styles.works_sub}> {item.text} </span>
+          </p>
+        </div>
+            ))}
+        
+    </div>
    </div>
   );
 }
