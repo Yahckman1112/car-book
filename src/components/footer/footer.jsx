@@ -1,8 +1,14 @@
 import React from "react";
 import styles from "./footer.module.scss";
-import { carText } from "./text";
+import { carText, logo, links, customers } from "./text";
 import { Link } from "react-router-dom";
-import { FaFacebook, FaInstagramSquare, FaLocationArrow, FaSearchLocation, FaTwitter } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaInstagramSquare,
+  FaLocationArrow,
+  FaSearchLocation,
+  FaTwitter,
+} from "react-icons/fa";
 function Footer(props) {
   return (
     <div className={styles.footer}>
@@ -15,63 +21,33 @@ function Footer(props) {
           <p>{carText.text}</p>
 
           <div className={styles.social}>
-            <a href="#"  className={styles.social_logo}>
-
-            <FaFacebook size={25}/> 
-            </a>
-
-            <a href="#" className={styles.social_logo}> <FaTwitter size={25}/> </a>
-            <a href="#" className={styles.social_logo}><FaInstagramSquare size={25}/> </a>
+            {logo.map((logo, i) => (
+              <a href={logo.link} className={styles.social_logo}>
+                {logo.logo}
+              </a>
+            ))}
           </div>
         </div>
         <div className="col-12 col-lg-3 col-md-3">
           <p className={styles.para2}>Information</p>
+          {links.map(link=>(
 
           <Link className={styles.link} to="#">
-            {" "}
-            About{" "}
+           {link.linkName}
           </Link>
-          <Link className={styles.link} to="#">
-            {" "}
-            Service{" "}
-          </Link>
-          <Link className={styles.link} to="#">
-            {" "}
-            Terms And Conditions{" "}
-          </Link>
-          <Link className={styles.link} to="#">
-            {" "}
-            Best Price Guarantee{" "}
-          </Link>
-          <Link className={styles.link} to="#">
-            {" "}
-            Privacy and Cookies Policy{" "}
-          </Link>
+          ))}
         </div>
+
         <div className="col-12 col-lg-3 col-md-3">
           <p className={styles.para2}> Customer Support </p>
+          {customers.map(item=>(
 
           <Link className={styles.link} to="#">
-            {" "}
-            FAQ?{" "}
+          {item.linkName}
           </Link>
-          <Link className={styles.link} to="#">
-            {" "}
-            Payment Option{" "}
-          </Link>
-          <Link className={styles.link} to="#">
-            {" "}
-            Booking Tips{" "}
-          </Link>
-          <Link className={styles.link} to="#">
-            {" "}
-            How it works{" "}
-          </Link>
-          <Link className={styles.link} to="#">
-            {" "}
-            Contact Us{" "}
-          </Link>
-        </div>
+          )) }
+        
+               </div>
         <div className="col-12 col-lg-3 col-md-3">
           <p className={styles.para2}> Have a Question </p>
           <p className={styles.quest}>
@@ -100,7 +76,9 @@ function Footer(props) {
           </p>
         </div>
       </div>
-      <p style={{textAlign:'center', paddingTop:'30px'}} >Copyright ©2023 All rights reserved</p>
+      <p style={{ textAlign: "center", paddingTop: "30px" }}>
+        Copyright ©2023 All rights reserved
+      </p>
     </div>
   );
 }
