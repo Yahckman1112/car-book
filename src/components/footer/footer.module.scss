@@ -1,0 +1,78 @@
+@import "./../../index.scss";
+
+.footer {
+  height: 100vh;
+  font-size: 16px;
+  background: #000;
+  padding: 2rem 9rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 18px;
+  line-height: 1.7;
+
+  @include responsive(tab) {
+    padding: 2rem 5rem;
+  }
+}
+
+.para1 {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #fff;
+  font-size: 25px;
+  padding-bottom: 25px;
+
+  &_sub {
+    color: #01d28e;
+  }
+}
+
+.para2 {
+  @extend .para1;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+
+.link {
+  text-decoration: none;
+  text-align: left;
+  align-items: flex-start;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 2.4;
+  display: block;
+}
+
+.link:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.quest {
+  display: grid;
+  column-gap: 10px;
+  grid-template-columns: 30px auto;
+
+  &_logo {
+    color: $primary-color !important;
+  }
+}
+
+
+.social{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    
+    
+    &_logo{
+        color: $primary-color;
+        padding: 15px 18px;
+        background-color: rgba(255, 255, 255, 0.05);;
+        border-radius: 50%;
+
+
+        &:hover{
+            color: $primary-color;
+        }
+    }
+
+}
