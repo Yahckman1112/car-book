@@ -11,6 +11,10 @@
 
   @include responsive(tab) {
     padding: 2rem 5rem;
+}
+@include responsive(phone){
+    height: auto;
+    padding: 2rem 2rem;
   }
 }
 
@@ -20,6 +24,11 @@
   color: #fff;
   font-size: 25px;
   padding-bottom: 25px;
+
+  @include responsive(tab){
+    padding-bottom: 0px;
+    padding-top: 20px;
+  }
 
   &_sub {
     color: #01d28e;
@@ -39,6 +48,10 @@
   color: rgba(255, 255, 255, 0.7);
   line-height: 2.4;
   display: block;
+
+  @include responsive(phone){
+    line-height: 2;
+  }
 }
 
 .link:hover {
@@ -49,6 +62,11 @@
   display: grid;
   column-gap: 10px;
   grid-template-columns: 30px auto;
+
+  @include responsive(tab){
+    column-gap: 2px;
+    grid-template-columns: 20px auto;
+  }
 
   &_logo {
     color: $primary-color !important;
