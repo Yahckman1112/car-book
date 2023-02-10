@@ -127,6 +127,7 @@
   width: 70%;
   margin-left: 30% !important;
   margin: 6% auto;
+  // margin-bottom: 0px;
 
   @include responsive(phone){
     margin: 0px !important;
@@ -138,6 +139,4 @@
   }
 }
 
-// .footer_content_para{
-//     width: ;
-// }
+

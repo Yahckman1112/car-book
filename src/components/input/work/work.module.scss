@@ -1,7 +1,23 @@
-@import "../../../index.scss";
+@import "./../../../index.scss";
 
+@mixin responsive($breakPoint) {
+    @if $breakPoint==tab {
+        @media screen and (max-width:768px){@content}
+    }
+    @if $breakPoint==phone {
+        @media screen and (max-width:430px){@content}
+    }
+  
+  }
+  
+.body{
+    width: 100% !important;
+}
 .work {
   background-color: #f8f9fa;
+  box-sizing: border-box;
+  width: 100% !important;
+
 }
 
 .works {
@@ -10,13 +26,21 @@
     padding-top: 90px;
     
     
+    @include responsive(phone){
+        display: block;
+    }
     
-  &_main {
-    font-weight: 300;
-    font-size: 50px;
-    color: #1089ff;
-    // opacity: 0 !important;
-}
+    
+    &_main {
+        font-weight: 300;
+        font-size: 50px;
+        color: #1089ff;
+        @include responsive(phone){
+            display: block;
+        }
+
+        
+    }
 
 
 
@@ -25,8 +49,10 @@
     color: rgba(0, 0, 0, 0.7);
     margin-bottom: 10px;
     line-height: 1.2;
-    padding-left: 15px;
-    
+    // padding-left: 15px;
+    @media screen and (max-width:430px) {
+     display: block;   
+    }
    
   }
 }

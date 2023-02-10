@@ -8,7 +8,7 @@ import Work from "./../../components/input/work/work";
 
 function Home(props) {
   return (
-    <div>
+    <div >
       <Banner />
       <Book />
       <Feture />
