@@ -10,9 +10,7 @@
   
   }
   
-.body{
-    width: 100% !important;
-}
+
 .work {
   background-color: #f8f9fa;
   box-sizing: border-box;
@@ -25,7 +23,9 @@
     padding: 40px;
     padding-top: 90px;
     
-    
+    @include responsive(tab){
+        padding-top: 10px;
+    }
     @include responsive(phone){
         display: block;
     }
