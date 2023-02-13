@@ -10,24 +10,20 @@
   // background-color: red;
   height: 100vh;
   background-size: cover;
-  background-position: top;
+  background-position: center;
   text-align: center;
-  padding-top: 8%;
-  padding-left: 70px;
-  padding-right: 70px;
   color: $primary-color;
-  clip-path: polygon(100% 0, 100% 38%, 100% 90%, 0 100%, 0 0);
+  // clip-path: polygon(100% 0, 100% 38%, 100% 90%, 0 100%, 0 0);
   
-
   @media screen and (max-width: 768px) {
     height: 80vh;
     background-position: center;
-    clip-path: polygon(100% 0, 100% 38%, 100% 95%, 0 100%, 0 0);
+    // clip-path: polygon(100% 0, 100% 38%, 100% 95%, 0 100%, 0 0);
   }
 }
 
 .para1 {
-  font-size: 3.9rem;
+  font-size: 44px;
   font-weight: 700;
 
   @media screen and (max-width: 768px) {
@@ -37,21 +33,30 @@
 
 .para2 {
   // width: 80%;
-  font-size: 1.6rem;
+
+  font-size: 20px;
   text-align: center;
+  font-weight: 500;
   @media screen and (max-width: 768px) {
     font-size: 1.2rem !important;
+    font-size: 18px;
   }
   @media screen and (max-width: 430px) {
     display: inline-flex;
   }
 }
-
-.book {
-  height: 80% !important;
-  color: $primary-color;
+.textContainer {
+  position: relative;
+  top: 30%;
+  left: 30%;
+  width: 50%;
+@include responsive(tab){
+  width: 70%;
+  left: 15%;
 }
 
-.form {
-  background-color: #6610f2;
+@include responsive(phone){
+  top: 10%;
 }
+}
+
