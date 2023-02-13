@@ -2,13 +2,8 @@ import React from "react";
 import styles from "./footer.module.scss";
 import { carText, logo, links, customers } from "./text";
 import { Link } from "react-router-dom";
-import {
-  FaFacebook,
-  FaInstagramSquare,
-  FaLocationArrow,
-  FaSearchLocation,
-  FaTwitter,
-} from "react-icons/fa";
+import { FaLocationArrow } from "react-icons/fa";
+import { Zoom } from "react-reveal";
 function Footer(props) {
   return (
     <div className={styles.footer}>
@@ -22,32 +17,31 @@ function Footer(props) {
 
           <div className={styles.social}>
             {logo.map((logo, i) => (
-              <a href={logo.link} className={styles.social_logo}>
-                {logo.logo}
-              </a>
+              <Zoom>
+                <a href={logo.link} className={styles.social_logo}>
+                  {logo.logo}
+                </a>
+              </Zoom>
             ))}
           </div>
         </div>
         <div className="col-12 col-lg-3 col-md-3">
           <p className={styles.para2}>Information</p>
-          {links.map(link=>(
-
-          <Link className={styles.link} to="#">
-           {link.linkName}
-          </Link>
+          {links.map((link) => (
+            <Link className={styles.link} to="#">
+              {link.linkName}
+            </Link>
           ))}
         </div>
 
         <div className="col-12 col-lg-3 col-md-3">
           <p className={styles.para2}> Customer Support </p>
-          {customers.map(item=>(
-
-          <Link className={styles.link} to="#">
-          {item.linkName}
-          </Link>
-          )) }
-        
-               </div>
+          {customers.map((item) => (
+            <Link className={styles.link} to="#">
+              {item.linkName}
+            </Link>
+          ))}
+        </div>
         <div className="col-12 col-lg-3 col-md-3">
           <p className={styles.para2}> Have a Question </p>
           <p className={styles.quest}>

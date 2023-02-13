@@ -25,6 +25,24 @@ $frequent-color1: #01d28e;
 
 }
 
+.hideOnDesktop{
+  visibility: hidden;
+  @include responsive(tab){
+    visibility: visible;
+  }
+  @include responsive(phone){
+    visibility: visible !important;
+  }
+ 
+}
+.hideOnMobile{
+  visibility: visible;
+  @include responsive(tab){
+    visibility: hidden;
+  }
+}
+
+
 
 
 

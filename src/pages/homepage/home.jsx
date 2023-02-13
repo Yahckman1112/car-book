@@ -15,7 +15,7 @@ function Home(props) {
       <Feture />
       <Aboutus />
       <Services />
-      <Work />
+      {/* <Work /> */}
       <Footer />
     </div>
   );

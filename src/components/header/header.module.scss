@@ -1,0 +1,46 @@
+@import "./../../index.scss";
+
+.title {
+  font-weight: 800;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.header {
+  display: flex;
+  padding: 20px;
+  flex-direction: row;
+  padding-left: 1.5rem;
+  overflow-x: hidden;
+  margin-bottom: 0px;
+}
+.navs {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+}
+.nav_items {
+  text-decoration: none;
+  margin-left: 40px;
+  font-size: 15px;
+  font-weight: 400;
+  color: black;
+
+  &:hover {
+    color: black;
+  }
+}
+
+.active {
+  color: $frequent-color;
+}
+.not_active {
+  color: black;
+}
+
+
+.icon{
+   @include responsive(phone){
+      margin-left: -500px;
+   }
+}
