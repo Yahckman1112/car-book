@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "./banner.module.scss";
+import { Fade } from 'react-reveal';
 function Banner(props) {
   return (
     <div>
       <div className={styles.banner}>
         <div className={styles.textContainer}>
+      <Fade bottom>
 
         <p className={styles.para1}>Fast & Easy Way To Rent A Car</p>
 
@@ -13,6 +15,7 @@ function Banner(props) {
           the necessary regelialia. It is a paradisematic country, in which
           roasted parts
         </p>
+      </Fade>
         </div>
       </div>
     </div>

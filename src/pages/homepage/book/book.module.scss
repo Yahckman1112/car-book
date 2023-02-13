@@ -135,7 +135,7 @@
   @media screen and (max-width: 430px) {
     margin-left: 40%;
     margin-top: 20px;
-    // margin-right: 1800px;
+ 
   }
 }
 
@@ -144,13 +144,19 @@
   font-weight: 500;
   background-color: $frequent-color;
   color: $primary-color;
-  padding: 14px 30px;
-  width: 40%;
+  padding: 14px 10px;
   margin-top: 40px;
   border-radius: 7px;
   text-align: center;
+  text-decoration: none;
+
+
 
   @media screen and (max-width: 768px) {
     width: 350px;
   }
+}
+
+.logo_btn:hover{
+  color: $frequent-color;
 }

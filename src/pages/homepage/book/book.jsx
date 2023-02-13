@@ -5,9 +5,11 @@ import { Link } from "react-router-dom";
 import { FaRegHandshake, FaTable } from "react-icons/fa";
 import { RiUserLocationFill } from "react-icons/ri";
 import { AiOutlineCar } from "react-icons/ai";
+import Fade from 'react-reveal/Fade'
 function Book(props) {
   return (
     <div>
+      < Fade bottom>
       <div className={`container ${styles.book}`}>
         <div className="row">
           <div className="col-12 col-lg-4 col-md-4">
@@ -54,9 +56,9 @@ function Book(props) {
                     <AiOutlineCar className={`${styles.logos}`} />
                     <p className={styles.logo_text}>Reserve Your Rental Car</p>
                   </div>
-                  <Link to="#">
-                    {" "}
-                    <p  className={styles.logo_btn}>Reserve Your car</p>
+                  <Link to="#" className={styles.logo_btn}>
+                   
+                    Reserve Your car
                   </Link>
                 </div>
               </div>
@@ -64,6 +66,7 @@ function Book(props) {
           </div>
         </div>
       </div>
+      </Fade>
     </div>
   );
 }
