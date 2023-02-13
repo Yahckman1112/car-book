@@ -15,7 +15,7 @@
   padding: 20px;
   flex-direction: row;
   padding-left: 1.5rem;
-  // overflow-x: hidden;
+  overflow-x: hidden;
   margin-bottom: 0px;
 }
 .navs {
@@ -26,13 +26,13 @@
 .nav_items {
   text-decoration: none;
   margin-left: 40px;
-  font-size: 15px;
-  font-weight: 400;
+  font-size: 17px;
+  font-weight: 700;
   color: black;
 
-  &:hover {
-    color: black;
-  }
+  // &:hover {
+  //   color: black;
+  // }
 }
 
 .active {
@@ -47,4 +47,26 @@
    @include responsive(phone){
       margin-left: -500px;
    }
+}
+
+.resp_nav{
+  padding: 20px;
+  // padding-left: 20px;
+}
+
+.resp_navs{
+  display: block;
+  text-decoration: none;
+  font-size: 17px;
+  padding-top: 20px;
+  color: black;
+  font-weight: 700;
+  // text-align: center;
+
+
+  &_logo{
+     padding-right: 10px;
+     color: #01d28e !important;
+  }
+
 }
