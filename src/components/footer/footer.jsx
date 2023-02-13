@@ -4,6 +4,7 @@ import { carText, logo, links, customers } from "./text";
 import { Link } from "react-router-dom";
 import { FaLocationArrow } from "react-icons/fa";
 import { Zoom } from "react-reveal";
+import { MdLocationPin, MdOutlineMail, MdPhoneIphone } from "react-icons/md";
 function Footer(props) {
   return (
     <div className={styles.footer}>
@@ -47,7 +48,7 @@ function Footer(props) {
           <p className={styles.quest}>
             <span className={styles.quest_logo}>
               {" "}
-              <FaLocationArrow />{" "}
+              <MdLocationPin size={25} />{" "}
             </span>
             <span className={styles.logo_text}>
               {" "}
@@ -57,14 +58,14 @@ function Footer(props) {
           <p className={styles.quest}>
             <span className={styles.quest_logo}>
               {" "}
-              <FaLocationArrow />{" "}
+              <MdPhoneIphone size={25} />{" "}
             </span>
             <span className={styles.logo_text}> +2348146283237</span>
           </p>
           <p className={styles.quest}>
             <span className={styles.quest_logo}>
               {" "}
-              <FaLocationArrow />{" "}
+              <MdOutlineMail size={25} />{" "}
             </span>
             <span className={styles.quset_text}>infinity1212@gmail.com</span>
           </p>

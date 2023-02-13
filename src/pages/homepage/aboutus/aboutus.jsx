@@ -29,11 +29,11 @@ function Aboutus(props) {
               </p>
             </div>
 
-              <p className={styles.search_btn}>
-            <a href="#" >
+            
+            <a href="#"  className={styles.search_btn} >
             Search Vehicle
             </a>
-              </p>
+              
           </div>
         </div>
     </div>

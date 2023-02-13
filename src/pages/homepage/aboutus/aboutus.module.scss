@@ -5,16 +5,14 @@
   padding: 5rem;
   height: 110vh;
 
-  @include responsive(tab){
+  @include responsive(tab) {
     padding: 2rem;
     height: auto;
 
-    @include responsive(phone){
-        background: linear-gradient(90deg, #01d28e 50%, #01d28e 50%);
-
+    @include responsive(phone) {
+      background: linear-gradient(90deg, #01d28e 50%, #01d28e 50%);
     }
   }
-
 }
 
 .about_image {
@@ -24,20 +22,18 @@
   background-size: cover;
   background-repeat: no-repeat;
 
-  @include responsive(tab){
+  @include responsive(tab) {
     height: 800px;
   }
- 
-  @include responsive(phone){
+
+  @include responsive(phone) {
     height: 500px;
   }
- 
-
 }
 .about_text {
   padding: 20px;
-  
-  @include responsive(tab){
+
+  @include responsive(tab) {
     padding: 10px;
   }
 }
@@ -49,8 +45,6 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   line-height: 1.7;
-
-
 }
 
 .head {
@@ -66,7 +60,7 @@
   font-weight: 600;
   font-size: 17px;
 
-  @include responsive(tab){
+  @include responsive(tab) {
     font-size: 16px;
   }
 }
@@ -75,13 +69,19 @@
   margin-bottom: 20px;
 }
 
-.search_btn{
-    background-color: $frequent-color;
+.search_btn {
+  background-color: $frequent-color;
+  color: $primary-color;
+  padding: 15px 50px;
+  width: 200px;
+  text-align: center;
+  border-radius: 6px;
+  margin-top: 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  font-weight: 500;
+
+  &:hover {
     color: $primary-color;
-    padding: 15px 20px;
-    width: 200px;
-    text-align: center;
-    border-radius: 6px;
-    margin-top: 10px;
-    
+  }
 }

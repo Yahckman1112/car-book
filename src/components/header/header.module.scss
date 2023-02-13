@@ -44,6 +44,9 @@
 
 
 .icon{
+ @include responsive(tab){
+  margin-left: -100px;
+ }
    @include responsive(phone){
       margin-left: -500px;
    }

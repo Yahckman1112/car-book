@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import { Fade } from 'react-reveal';
 function Feture(props) {
   const carInfo = [
     {
@@ -48,18 +49,14 @@ function Feture(props) {
   ];
   return (
     <div className={styles.feture}>
+      < Fade bottom>
       <p className={styles.para1}>what we offer</p>
 
       <p className={styles.para2}>Feeatured Vehicles</p>
-      <div className="container">
-        {/* <div className="row">
-      {carInfo.map((info,i)=>(
-      <div className="col-12 col-lg-4 col-md-4">
-      < FetureCard image={info.image} carName={info.carName} days={info.days}/>
-      </div>
-        
-      ))}
-    </div> */}
+      
+      </Fade>
+      <div className="container-fluid">
+      <Fade bottom>
         <Swiper
           breakpoints={{
             320: {
@@ -86,6 +83,8 @@ function Feture(props) {
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={() => console.log("slide change")}
         >
+      
+
           {carInfo.map((item, i) => (
             <SwiperSlide>
               <FetureCard
@@ -96,6 +95,7 @@ function Feture(props) {
             </SwiperSlide>
           ))}
         </Swiper>
+          </Fade>
       </div>
     </div>
   );
