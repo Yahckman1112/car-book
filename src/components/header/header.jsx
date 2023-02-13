@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./header.module.scss";
 import { Link } from 'react-router-dom';
 import { AiOutlineMenuUnfold } from "react-icons/ai";
+import {CgMenuGridR} from 'react-icons/cg'
 import { useState } from "react";
 function Header(props) {
     const [isActive, setisActive] = useState(false)
@@ -30,7 +31,7 @@ function Header(props) {
 
 
         <div className={`${styles.hideOnDesktop} ${styles.icon}`}>
-           <AiOutlineMenuUnfold size={30}/>
+           <CgMenuGridR size={30}/>
         </div>
 
         
