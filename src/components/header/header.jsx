@@ -30,8 +30,8 @@ function Header(props) {
         </div>
 
         <nav className={`${styles.hideOnMobile} ${styles.navs}`}>
-            <Link to='#'  className={` ${styles.nav_items}`}>Home</Link>
-            <Link to='#'  className={` ${styles.nav_items}`}>About</Link>
+            <Link to='/'  className={` ${styles.nav_items}`}>Home</Link>
+            <Link to='/about'  className={` ${styles.nav_items}`}>About</Link>
             <Link to='#'  className={` ${styles.nav_items}`}>Service</Link>
             <Link to='#'  className={` ${styles.nav_items}`}>Pricing</Link>
             <Link to='#'  className={` ${styles.nav_items}`}>Car</Link>
@@ -56,8 +56,8 @@ function Header(props) {
 
         <Offcanvas.Body>
           <div className={styles.resp_nav}>
-            <Link to='#' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}><AiFillHome size={20}/></span> Home</Link>
-            <Link to='#' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}>< BsInfoCircle size={20}/></span> About</Link>
+            <Link to='/' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}><AiFillHome size={20}/></span> Home</Link>
+            <Link to='/about' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}>< BsInfoCircle size={20}/></span> About</Link>
             <Link to='#' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}><FcServices size={20}/></span> Service</Link>
             <Link to='#' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}><MdPriceChange size={20}/></span> Pricing</Link>
             <Link to='#' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}>< IoCarSportSharp size={20}/></span>  Car</Link>

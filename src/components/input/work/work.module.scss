@@ -1,63 +1,58 @@
 @import "./../../../index.scss";
 
 @mixin responsive($breakPoint) {
-    @if $breakPoint==tab {
-        @media screen and (max-width:768px){@content}
+  @if $breakPoint==tab {
+    @media screen and (max-width: 768px) {
+      @content;
     }
-    @if $breakPoint==phone {
-        @media screen and (max-width:430px){@content}
-    }
-  
   }
-  
-.body{
-    width: 100% !important;
-    overflow-x: hidden;
+  @if $breakPoint==phone {
+    @media screen and (max-width: 430px) {
+      @content;
+    }
+  }
+}
+
+.body {
+  width: 100% !important;
+  overflow-x: hidden;
+
 }
 .work {
   background-color: #f8f9fa;
   box-sizing: border-box;
-max-width: 107%;
-
-
-
+  max-width: 107%;
 }
 
 .works {
-    text-align: center;
-    padding: 40px;
-    padding-top: 90px;
-    
-    @include responsive(tab){
-        padding-top: 10px;
+  text-align: center;
+  padding: 40px;
+  padding-top: 90px;
+
+  @include responsive(tab) {
+    padding-top: 10px;
+  }
+  @include responsive(phone) {
+    display: block;
+  }
+
+  &_main {
+    font-weight: 300;
+    font-size: 50px;
+    color: #1089ff;
+    @include responsive(phone) {
+      display: block;
     }
-    @include responsive(phone){
-        display: block;
-    }
-    
-    
-    &_main {
-        font-weight: 300;
-        font-size: 50px;
-        color: #1089ff;
-        @include responsive(phone){
-            display: block;
-        }
+  }
 
-        
-    }
-
-
-
-&_sub{
+  &_sub {
     font-size: 18px;
     color: rgba(0, 0, 0, 0.7);
     margin-bottom: 10px;
     line-height: 1.2;
     // padding-left: 15px;
-    @media screen and (max-width:430px) {
-     display: block;   
+    @media screen and (max-width: 430px) {
+      display: block;
     }
-   
   }
 }

@@ -3,11 +3,12 @@ import { FaAccessibleIcon } from "react-icons/fa";
 import styles from "./services.module.scss";
 import { RiCarWashingLine, RiPoliceCarLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
-import { Fade } from 'react-reveal';
+import { Fade } from "react-reveal";
 import {
   MdOutlineDirectionsCar,
   MdOutlineDirectionsCarFilled,
 } from "react-icons/md";
+import ServiceFooter from "./serviceFooter";
 function Services(props) {
   return (
     <div className={styles.service}>
@@ -59,23 +60,7 @@ function Services(props) {
         </div>
       </div>
 
-      <div className={styles.service_footer}>
-        <div className={styles.footer_body}>
-          <div className={styles.footer_body_main}></div>
-          <div className={styles.footer_body_sub}>
-            <Fade bottom>
-            <div className={styles.footer_content}>
-              <p className={styles.footer_content_para} >Do You Want To Earn With Us? So Don't Be Late.</p>
-
-              <Link to="#" className="btn btn-primary btn-lg">
-                Become a driver
-              </Link>
-
-            </div>
-            </Fade>
-          </div>
-        </div>
-      </div>
+      <ServiceFooter />
     </div>
   );
 }
