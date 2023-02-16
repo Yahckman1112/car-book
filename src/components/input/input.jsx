@@ -1,13 +1,13 @@
 import React from "react";
 import { FormGroup, Input, Label } from "reactstrap";
-import styles from './input.module.scss'
+import styles from "./input.module.scss";
 
-function FormInput({label, placeholder, type }) {
+function FormInput({name, label, placeholder, type = "text" }) {
   return (
     <div>
       <FormGroup>
         <Label className={styles.label}>{label}</Label>
-        <Input name="email" placeholder={placeholder} type={type}/>
+        <Input name={name} placeholder={placeholder} type={type} />
       </FormGroup>
     </div>
   );

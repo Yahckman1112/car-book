@@ -12,8 +12,15 @@ import ServiceFooter from "./serviceFooter";
 function Services(props) {
   return (
     <div className={styles.service}>
+
+      <Fade bottom>
       <p className={styles.para1}>SERVICES</p>
       <p className={styles.para2}>Our Latest Services</p>
+
+      </Fade>
+
+      <Fade bottom>
+
       <div className="container">
         <div className="row">
           <div className={`${styles.col} col-12 col-lg-3 col-md-3 `}>
@@ -59,6 +66,7 @@ function Services(props) {
           </div>
         </div>
       </div>
+      </Fade>
 
       <ServiceFooter />
     </div>

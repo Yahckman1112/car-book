@@ -36,7 +36,7 @@ function Header(props) {
             <Link to='/pricing'  className={` ${styles.nav_items}`}>Pricing</Link>
             <Link to='#'  className={` ${styles.nav_items}`}>Car</Link>
             <Link to='#'  className={` ${styles.nav_items}`}>Blog</Link>
-            <Link to='#'  className={` ${styles.nav_items}`}>Contact</Link>
+            <Link to='contact'  className={` ${styles.nav_items}`}>Contact</Link>
         </nav>
 
 
@@ -62,7 +62,7 @@ function Header(props) {
             <Link to='/pricing' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}><MdPriceChange size={20}/></span> Pricing</Link>
             <Link to='#' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}>< IoCarSportSharp size={20}/></span>  Car</Link>
             <Link to='#' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}>< GrBlog size={20}/></span> Blog</Link>
-            <Link to='#' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}>< MdContactMail size={20}/></span>  Contact</Link>
+            <Link to='/contact' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}>< MdContactMail size={20}/></span>  Contact</Link>
             
           </div>
         </Offcanvas.Body>
