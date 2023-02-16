@@ -4,6 +4,7 @@ import styles from "./contact.module.scss";
 // import { Input } from 'reactstrap';
 import FormInput from "./../../components/input/input";
 import { Button } from "reactstrap";
+import { FaAccessibleIcon } from "react-icons/fa";
 function Contact(props) {
   return (
     <div>
@@ -15,7 +16,10 @@ function Contact(props) {
           <div
             className={` ${styles.contact_address} col-12 col-lg-4 col md-4`}
           >
-            1
+            <div className={styles.contact_address_log}>
+              <FaAccessibleIcon size={20} />{" "}
+            </div>
+            <div className={styles.contact_address_text}>text</div>
           </div>
           <div className={` ${styles.contact_form} col-12 col-lg-8 col md-8`}>
             <FormInput placeholder="Your name" />
