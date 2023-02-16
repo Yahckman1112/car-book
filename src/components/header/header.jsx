@@ -32,8 +32,8 @@ function Header(props) {
         <nav className={`${styles.hideOnMobile} ${styles.navs}`}>
             <Link to='/'  className={` ${styles.nav_items}`}>Home</Link>
             <Link to='/about'  className={` ${styles.nav_items}`}>About</Link>
-            <Link to='#'  className={` ${styles.nav_items}`}>Service</Link>
-            <Link to='#'  className={` ${styles.nav_items}`}>Pricing</Link>
+            <Link to='/services'  className={` ${styles.nav_items}`}>Service</Link>
+            <Link to='/pricing'  className={` ${styles.nav_items}`}>Pricing</Link>
             <Link to='#'  className={` ${styles.nav_items}`}>Car</Link>
             <Link to='#'  className={` ${styles.nav_items}`}>Blog</Link>
             <Link to='#'  className={` ${styles.nav_items}`}>Contact</Link>
@@ -58,8 +58,8 @@ function Header(props) {
           <div className={styles.resp_nav}>
             <Link to='/' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}><AiFillHome size={20}/></span> Home</Link>
             <Link to='/about' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}>< BsInfoCircle size={20}/></span> About</Link>
-            <Link to='#' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}><FcServices size={20}/></span> Service</Link>
-            <Link to='#' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}><MdPriceChange size={20}/></span> Pricing</Link>
+            <Link to='/services' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}><FcServices size={20}/></span> Service</Link>
+            <Link to='/pricing' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}><MdPriceChange size={20}/></span> Pricing</Link>
             <Link to='#' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}>< IoCarSportSharp size={20}/></span>  Car</Link>
             <Link to='#' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}>< GrBlog size={20}/></span> Blog</Link>
             <Link to='#' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}>< MdContactMail size={20}/></span>  Contact</Link>

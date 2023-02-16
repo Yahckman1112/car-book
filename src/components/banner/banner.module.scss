@@ -1,0 +1,50 @@
+@import "./../../index.scss";
+
+.banner {
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("./../../assets/bg_3.jpg");
+//   background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  overflow-x: hidden;
+  @include responsive(phone){
+    background-position: right;
+    
+  }
+}
+
+
+.links{
+    position: relative;
+    top: 75%;
+    left: 2rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 1.5;
+
+}
+
+.links_main{
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+
+}
+
+.about_text{
+    color: $primary-color;
+    font-size: 44px;
+    font-weight: 600 !important;
+    line-height: .8;
+    padding-top: 1rem;
+
+    @include responsive(tab){
+        font-size: 40px;
+    }
+}
