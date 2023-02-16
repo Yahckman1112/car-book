@@ -22,8 +22,8 @@ function Work(props) {
   ];
   return (
     <div className={styles.body}>
-      <div className="row">
-        <div className={`row ${styles.work} no-gutter`}>
+      <div className="">
+        <div className={`row ${styles.work} `}>
           {data.map((item, i) => (
             <div className="col-12 col-lg-3 col-md-6">
               <p className={styles.works}>

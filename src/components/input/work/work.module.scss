@@ -10,11 +10,14 @@
   
   }
   
-
+.body{
+    width: 100% !important;
+    overflow-x: hidden;
+}
 .work {
   background-color: #f8f9fa;
   box-sizing: border-box;
-  width: 100% !important;
+max-width: 107%;
 
 
 
