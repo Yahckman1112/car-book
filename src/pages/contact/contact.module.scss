@@ -3,6 +3,7 @@
 .contact_body {
   padding: 6rem;
   height: 100vh;
+  margin-bottom: -140px;
   @include responsive(tab){
     margin-bottom: 330px;
 

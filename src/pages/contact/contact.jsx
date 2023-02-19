@@ -1,17 +1,20 @@
-import React from "react";
+import React, {useRef, useState}from "react";
 import BannerUsed from "./../../components/banner/banner";
 import styles from "./contact.module.scss";
-// import { Input } from 'reactstrap';
 import FormInput from "./../../components/input/input";
 import { Button } from "reactstrap";
 import { GiSmartphone } from "react-icons/gi";
 import { FiMail, FiMap } from "react-icons/fi";
 import { useFormik } from "formik";
-// import * as Yup from 'yup'
+import emailjs from "@emailjs/browser";
 import * as Yup from "yup";
 import Footer from "../../components/footer/footer";
 
+import Swal from "sweetalert2";
+
 function Contact(props) {
+  const [isLoading, setIsLoading]= useState(false)
+  const form = useRef();
   const location = [
     {
       logo: <FiMap size={30} />,
@@ -47,7 +50,36 @@ function Contact(props) {
     },
     validationSchema: MessageSubmit(),
     onSubmit: (values) => {
-      console.log(values);
+      setIsLoading(true)
+      emailjs
+        .sendForm(
+          "service_j7wz2wa",
+          "template_b5kvcic",
+          form.current,
+          "-vdSzHTq-8uRJgfl7"
+          )
+          .then(
+            (result) => {
+              Swal.fire({
+                icon: "success",
+                title: "Email",
+                text: "Email sent seccessfully",
+              });
+              setIsLoading(false);
+            console.log(result);
+          },
+          (error) => {
+            console.log(error.text);
+            Swal.fire({
+              icon: "error",
+              title: "error",
+              text: "Something went wrong",
+            });
+            // setIsLoading(false);
+          }
+        );
+
+     
 
       formik.handleReset();
     },
@@ -60,6 +92,7 @@ function Contact(props) {
       <div>
         <BannerUsed pageNameSub="contact" PageName={"Contact Us"} />
       </div>
+
       <div className={styles.contact_body}>
         <div className="row">
           <div
@@ -82,7 +115,7 @@ function Contact(props) {
           </div>
 
           <div className={` ${styles.contact_form} col-12 col-lg-8 col md-8`}>
-            <form onSubmit={formik.handleSubmit}>
+            <form ref={form} onSubmit={formik.handleSubmit}>
               <div>
                 <FormInput
                   placeholder="Your name"
@@ -129,8 +162,8 @@ function Contact(props) {
                   <p className={styles.errorMsg}>{formik.errors.message}</p>
                 )}
               </div>
-              <Button color="primary" type="submit">
-                Send Message
+              <Button disabled={isLoading} color="primary" type="submit">
+                {isLoading? 'Please wait....': 'Send Mail'}
               </Button>
             </form>
           </div>
