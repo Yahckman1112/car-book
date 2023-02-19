@@ -5,10 +5,11 @@ import styles from "./contact.module.scss";
 import FormInput from "./../../components/input/input";
 import { Button } from "reactstrap";
 import { GiSmartphone } from "react-icons/gi";
-import {FiMail, FiMap} from 'react-icons/fi'
+import { FiMail, FiMap } from "react-icons/fi";
 import { useFormik } from "formik";
 // import * as Yup from 'yup'
 import * as Yup from "yup";
+import Footer from "../../components/footer/footer";
 
 function Contact(props) {
   const location = [
@@ -135,6 +136,8 @@ function Contact(props) {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

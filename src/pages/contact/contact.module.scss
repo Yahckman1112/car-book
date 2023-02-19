@@ -3,9 +3,13 @@
 .contact_body {
   padding: 6rem;
   height: 100vh;
-  
+  @include responsive(tab){
+    margin-bottom: 330px;
+
+  }
   @include responsive(phone){
     padding: 1rem;
+    margin-bottom: 270px;
   }
 }
 
