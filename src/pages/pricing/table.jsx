@@ -7,8 +7,53 @@ function PriceTable(props) {
   const ratingChanged = (newRating) => {
     console.log(newRating);
   };
+
+  const tableData=[
+    {
+        carImage: car,
+        carName: 'Chevrolet SUV car',
+        priceDay: '350',
+        priceWeek: '150',
+        priceLease: '650',
+    },
+    {
+        carImage: car,
+        carName: 'Chevrolet SUV car',
+        priceDay: '350',
+        priceWeek: '150',
+        priceLease: '650',
+    },
+    {
+        carImage: car,
+        carName: 'Chevrolet SUV car',
+        priceDay: '350',
+        priceWeek: '150',
+        priceLease: '650',
+    },
+    {
+        carImage: car,
+        carName: 'Chevrolet SUV car',
+        priceDay: '350',
+        priceWeek: '150',
+        priceLease: '650',
+    },
+    {
+        carImage: car,
+        carName: 'Chevrolet SUV car',
+        priceDay: '350',
+        priceWeek: '150',
+        priceLease: '650',
+    },
+    {
+        carImage: car,
+        carName: 'Chevrolet SUV car',
+        priceDay: '350',
+        priceWeek: '150',
+        priceLease: '650',
+    },
+  ]
   return (
-    <div className="container">
+    <div className="container-fluid">
       <table class="table">
         <thead>
           <tr>
@@ -26,13 +71,15 @@ function PriceTable(props) {
           </tr>
         </thead>
         <tbody>
+            {tableData.map((item,i)=>(
+
           <tr>
             <td>
-              <img src={car} alt="" width={"200px"} height="200px" />{" "}
+              <img src={item.carImage} alt="" width={"200px"} height="150px" />{" "}
             </td>
 
             <td className={styles.product_name}>
-              <p>Chevrolet SUV car</p>
+              <p>{item.carName}</p>
               <p>
                 <ReactStars
                   count={6}
@@ -46,7 +93,7 @@ function PriceTable(props) {
               <p>
                 <span className={styles.num}>
                   {" "}
-                  <small className={styles.currency}>$</small> 350{" "}
+                  <small className={styles.currency}>$</small> {item.priceDay}{" "}
                 </span>
                 <span className={styles.per}>/per hour</span>
               </p>
@@ -62,7 +109,7 @@ function PriceTable(props) {
               <p>
                 <span className={styles.num}>
                   {" "}
-                  <small className={styles.currency}>$</small> 350{" "}
+                  <small className={styles.currency}>$</small> {item.priceWeek}{" "}
                 </span>
                 <span className={styles.per}>/per hour</span>
               </p>
@@ -78,7 +125,7 @@ function PriceTable(props) {
               <p>
                 <span className={styles.num}>
                   {" "}
-                  <small className={styles.currency}>$</small> 350{" "}
+                  <small className={styles.currency}>$</small> {item.priceLease} {" "}
                 </span>
                 <span className={styles.per}>/per hour</span>
               </p>
@@ -90,6 +137,7 @@ function PriceTable(props) {
               </p>
             </td>
           </tr>
+            ))}
         </tbody>
       </table>
     </div>
