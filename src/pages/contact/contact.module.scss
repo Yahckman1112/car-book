@@ -1,30 +1,74 @@
-@import './../../index.scss';
+@import "./../../index.scss";
 
-
-.contact_body{
-    padding: 6rem;
-    height: 100vh;
-    // background-color: orangered;
+.contact_body {
+  padding: 6rem;
+  height: 100vh;
+  
+  @include responsive(phone){
+    padding: 1rem;
+  }
 }
 
-.contact_form{
-    background-color: #f8f9fa ;
-    height: 100%;
-    padding: 50px 30px;
-
+.contact_form {
+  background-color: #f8f9fa;
+  height: 100%;
+  padding: 15px 30px;
 }
 
-.contact_address{
-    display: flex;
+.contact_address {
+  // display: flex;
 
+  &_log {
+    margin-top: 50px;
+  }
 
-    &_text{
-        flex: 1;
-        padding-left: 10px;
-    }
+  &_text {
+    flex: 1;
+    padding-left: 30px;
+    // bo
+  }
 }
 
-.errorMsg{
-    color: red;
-    font-size: 12px;
+.errorMsg {
+  color: red;
+  font-size: 12px;
+}
+
+
+
+.location {
+  border: 1px solid #dee2e6;
+  padding: 20px;
+  display: inline-flex;
+  width: 100%;
+  margin-bottom: 10px;
+
+  &_logo {
+
+    color: $frequent-color;
+  }
+}
+
+.location_address {
+  padding-left: 15px;
+  display: block;
+
+
+  &_main {
+    font-size: 17px;
+    font-weight: 600;
+    color: #999999;
+    display: block;
+  }
+
+  &_sub {
+    display: block;
+    display: block;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 0;
+    font-size: 16px;
+    line-height: 1.7;
+    padding-top: 7px;
+  }
 }

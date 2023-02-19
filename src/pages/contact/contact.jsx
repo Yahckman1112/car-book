@@ -4,12 +4,30 @@ import styles from "./contact.module.scss";
 // import { Input } from 'reactstrap';
 import FormInput from "./../../components/input/input";
 import { Button } from "reactstrap";
-import { FaAccessibleIcon } from "react-icons/fa";
+import { GiSmartphone } from "react-icons/gi";
+import {FiMail, FiMap} from 'react-icons/fi'
 import { useFormik } from "formik";
 // import * as Yup from 'yup'
 import * as Yup from "yup";
 
 function Contact(props) {
+  const location = [
+    {
+      logo: <FiMap size={30} />,
+      text: "Address",
+      sub: "No 34 Arulogun junction idimu street iworoad nigeria",
+    },
+    {
+      logo: <GiSmartphone size={30} />,
+      text: "phone",
+      sub: "08146283237",
+    },
+    {
+      logo: <FiMail size={30} />,
+      text: "Email",
+      sub: "infinitytech1212@gmail.com",
+    },
+  ];
   const MessageSubmit = () => {
     return Yup.object({
       name: Yup.string().required("Please let us know youer name"),
@@ -30,7 +48,7 @@ function Contact(props) {
     onSubmit: (values) => {
       console.log(values);
 
-      formik.handleReset()
+      formik.handleReset();
     },
   });
   // value={formik.values.firstName}
@@ -46,11 +64,22 @@ function Contact(props) {
           <div
             className={` ${styles.contact_address} col-12 col-lg-4 col md-4`}
           >
-            <div className={styles.contact_address_log}>
-              <FaAccessibleIcon size={20} />{" "}
-            </div>
-            <div className={styles.contact_address_text}>text</div>
+            {location.map((item, i) => (
+              <div className={styles.location}>
+                <p className={styles.location_logo}>{item.logo}</p>
+
+                <p className={styles.location_address}>
+                  <span className={styles.location_address_main}>
+                    {item.text}:
+                  </span>
+                  <span className={styles.location_address_sub}>
+                    {item.sub}
+                  </span>
+                </p>
+              </div>
+            ))}
           </div>
+
           <div className={` ${styles.contact_form} col-12 col-lg-8 col md-8`}>
             <form onSubmit={formik.handleSubmit}>
               <div>
