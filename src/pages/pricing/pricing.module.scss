@@ -1,0 +1,111 @@
+@import "../../index.scss";
+
+.head {
+  // height: 150px;
+  // padding: 30px 10px;
+  // background-color: orangered;
+  // text-align: center;
+  // position: relative;
+  // color: white;
+  padding: 100px ;
+  color: #fff !important;
+  border: 1px solid transparent !important;
+  position: relative;
+height: 100px;
+  border-right: 1px solid #fff !important;
+  vertical-align: bottom;
+
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.head_hour::after {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 100px 0 100px;
+  border-color: #1089ff transparent transparent transparent;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.head_rate::after{
+    @extend .head_hour;
+    border-color: #343a40 transparent transparent transparent;
+}
+
+.head_lease::after{
+    @extend .head_hour;
+    border-color: #000000 transparent transparent transparent;
+}
+
+
+.product_name{
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 400;
+    font-size:18px ;
+}
+
+.price{
+    text-align: center !important;
+    // background-color: rgba(0, 0, 0, 0.5);
+    background-color: orangered;
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff !important;
+    position: relative;
+    transition: all 0.3s ease;
+    text-align: center;
+    padding: 30px 0px !important;
+}
+
+
+
+.num{
+    color: #1089ff;
+    font-size: 20px;
+    position: relative;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.per{
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: 400;
+}
+
+.subHeading{
+    color: #212529;
+    size: 14px;
+}
+.currency{
+    position: absolute;
+    top: 0;
+    left: -10px;
+    font-size: 14px;
+}
+
+.btn_custom{
+    padding: 10px 20px;
+    background-color: $frequent-color;
+    border-radius: 7px;
+    box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.1234);
+    margin-top: 10px;
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    
+}
+
+.btn_custom:hover{
+    color: #fff;
+    transform: scale(2);
+}
