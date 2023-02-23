@@ -1,0 +1,101 @@
+@import "./../../index.scss";
+
+.cars {
+  padding: 40px;
+
+  @include responsive(tab){
+    padding: 30px;
+  }
+
+  @include responsive(phone){
+    padding: 20px;
+  }
+}
+.car_card {
+  border: 0px solid !important;
+  border-radius: 8px;
+  box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  @include responsive(phone){
+    margin-bottom: 35px;
+  }
+}
+.card_para {
+  border-top: none;
+  color: $frequent-color;
+  font-size: 25px;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    color: $frequent-color;
+  }
+}
+
+.card_para2 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  line-height: 1.8;
+
+  &_main {
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.2);
+    display: block;
+    margin-bottom: 0;
+  }
+  &_sub {
+    font-weight: 600;
+    color: $frequent-color;
+  }
+}
+
+.day {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.btn {
+  display: flex;
+  justify-content: space-between;
+
+  @include responsive(tab) {
+    display: block;
+  }
+}
+
+.btn_book {
+  padding: 9px 40px;
+  background-color: $frequent-color;
+  color: $primary-color;
+  font-weight: 600;
+  font-size: 18px;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-right: 20px;
+
+
+  @include responsive(tab) {
+    padding: 10px 30px;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+    // display: ;
+  }
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.btn_det {
+  @extend .btn_book;
+  padding: 9px 50px;
+  background-color: $frequent-color1;
+
+  @include responsive(tab) {
+    padding:10px 30px;
+    display: block;
+  }
+}

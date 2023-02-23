@@ -19,6 +19,10 @@
   text-transform: uppercase;
   font-size: 17px;
   font-weight: 500;
+
+  @include responsive(tab){
+    text-align: center !important;
+  }
 }
 
 .head_hour::after {
