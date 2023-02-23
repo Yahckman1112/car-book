@@ -53,8 +53,8 @@ function PriceTable(props) {
     },
   ]
   return (
-    <div className="container-fluid">
-      <table class="table">
+    <div className=" container" >
+      <table class="table table-responsive-md ">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -79,15 +79,18 @@ function PriceTable(props) {
             </td>
 
             <td className={styles.product_name}>
-              <p>{item.carName}</p>
+              <div className={styles.product_name_para}>
+
+              <p >{item.carName}</p>
               <p>
                 <ReactStars
                   count={6}
                   onChange={ratingChanged}
-                  size={24}
+                  size={20}
                   activeColor="#ffd700"
                 />
               </p>
+              </div>
             </td>
             <td className={`${styles.price}`}>
               <p>
