@@ -7,8 +7,9 @@ import About from "./pages/about/about";
 import ServicesPage from "./pages/services/services";
 import Pricing from "./pages/pricing/pricing";
 // import Pricing from './pages/pages/pages';
-import Contact from './pages/contact/contact';
-import Cars from './pages/cars/cars';
+import Contact from "./pages/contact/contact";
+import Cars from "./pages/cars/cars";
+import CarDetails from "./pages/carDetails/carDetails";
 
 function App() {
   return (
@@ -16,8 +17,9 @@ function App() {
       <Header />
 
       <Routes>
-        <Route path="/cars" element={< Cars />} />
-        <Route path="/contact" element={< Contact />} />
+        <Route path="/carDetails" element={<CarDetails />} />
+        <Route path="/cars" element={<Cars />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/about" element={<About />} />

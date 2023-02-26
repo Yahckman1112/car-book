@@ -91,7 +91,7 @@ function Cars(props) {
                     <Link className={` ${styles.btn_book} `} to="#">
                       Book Now
                     </Link>
-                    <Link className={` ${styles.btn_det}`} to="#">
+                    <Link className={` ${styles.btn_det}`} to="/carDetails">
                       Details{" "}
                     </Link>
                   </div>

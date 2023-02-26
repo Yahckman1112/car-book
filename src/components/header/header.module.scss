@@ -10,7 +10,9 @@
   }
 }
 
+
 .header {
+//  position: fixed;
   display: flex;
   padding: 20px;
   flex-direction: row;
@@ -22,6 +24,7 @@
   display: flex;
   justify-content: flex-end;
   flex: 1;
+  // position: fixed;
 }
 .nav_items {
   text-decoration: none;

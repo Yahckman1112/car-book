@@ -1,0 +1,68 @@
+@import "./../../index.scss";
+
+.upper_backgroung {
+  background-color: $frequent-color;
+  background-image: url("./../../assets/bg_1.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  margin: 90px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.features {
+  text-align: center;
+}
+
+.para1 {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.para2 {
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.carInfo {
+  padding: 10px;
+  display: grid;
+  grid-template-rows: 1;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+}
+
+.info_logo {
+  grid-column: 1/2;
+  color: $frequent-color;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 100%;
+  padding: 30px;
+}
+
+.info_detail {
+  // flex: 1;
+  text-align: center;
+  grid-column: 2/3;
+  font-size: 14px !important;
+  color: rgba(0, 0, 0, 0.4);
+  padding: 30px !important;
+  font-weight: 500;
+  margin-left: -20px;
+
+
+  &_main {
+    display: block;
+  }
+
+  &_sub {
+    color: #000000;
+    font-weight: 600;
+  }
+}

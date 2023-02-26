@@ -12,6 +12,7 @@ import {MdContactMail, MdPriceChange} from 'react-icons/md'
 import {IoCarSportSharp} from 'react-icons/io5'
 import {GrBlog} from 'react-icons/gr'
 function Header(props) {
+  const [scrollValue, setScrollValue]= useState(window.scrollY)
     const [isActive, setisActive] = useState(false)
     const [show, setShow]=useState(false);
 
@@ -21,15 +22,20 @@ function Header(props) {
      
         setisActive(!isActive)
     }
+
+    // const handleScroll=() =>{
+    //   if(scrollValue>140)
+    //   setScrollValue
+    // }
   return (
     <div>
-      <div className={`container ${styles.header}`}>
+      <div className={` container ${styles.header}`}>
         <div className={styles.title}>
           <span className={styles.title_main}>Car</span>
           <span className= {styles.title_sub}>Book</span>
         </div>
 
-        <nav className={`${styles.hideOnMobile} ${styles.navs}`}>
+        <nav  className={`  ${styles.hideOnMobile} ${styles.navs}`}>
             <Link to='/'  className={` ${styles.nav_items}`}>Home</Link>
             <Link to='/about'  className={` ${styles.nav_items}`}>About</Link>
             <Link to='/services'  className={` ${styles.nav_items}`}>Service</Link>
