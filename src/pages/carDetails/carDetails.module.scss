@@ -1,5 +1,7 @@
 @import "./../../index.scss";
-
+.detailPage {
+  background-color: #ffffff78;
+}
 .upper_backgroung {
   background-color: $frequent-color;
   background-image: url("./../../assets/bg_1.jpg");
@@ -10,7 +12,7 @@
   border-radius: 10px;
   margin-bottom: 20px;
 
-  @include responsive(phone){
+  @include responsive(phone) {
     margin: 20px;
     background-position: left;
     border-radius: 7px;
@@ -50,10 +52,9 @@
 
   border-radius: 100%;
   padding: 34px 25px;
-border: 1px solid rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 0, 0, 0.4);
 
-
-  @include responsive(phone){
+  @include responsive(phone) {
     // padding: 0px;
     border: 0px;
   }
@@ -69,10 +70,9 @@ border: 1px solid rgba(0, 0, 0, 0.4);
   font-weight: 500;
   margin-left: -20px;
 
-  @include responsive(phone){
+  @include responsive(phone) {
     margin-left: -50%;
   }
-
 
   &_main {
     display: block;
@@ -81,6 +81,30 @@ border: 1px solid rgba(0, 0, 0, 0.4);
   &_sub {
     color: #000000;
     font-weight: 600;
-
   }
+}
+// tabs
+
+.tab {
+  height: 50vh;
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: 400;
+  color: #999999;
+  @include responsive(phone){
+    padding: 20px;
+    line-height: 2;
+  }
+}
+
+.mark,
+.wrong {
+    margin-right: 10px;
+}
+.wrong{
+    color: red;
+}
+
+.mark{
+    color: green;
 }
