@@ -6,7 +6,12 @@ import BannerUsed from "./../../components/banner/banner";
 import styles from "./carDetails.module.scss";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
+import Footer from "./../../components/footer/footer";
 function CarDetails(props) {
+  const descriptionInfo = {
+    text: `      Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. 
+    When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the  subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way. `,
+  };
   const carInfos = [
     {
       logo: <BsSpeedometer2 size={40} />,
@@ -55,7 +60,7 @@ function CarDetails(props) {
     {
       text: "Luggage",
       sign: "mark",
-      logo:<span>&#10003;</span>,
+      logo: <span>&#10003;</span>,
     },
     {
       text: "Music",
@@ -80,7 +85,7 @@ function CarDetails(props) {
     {
       text: "  Bluetooth ",
       sign: "mark",
-      logo:<span>&#10003;</span>,
+      logo: <span>&#10003;</span>,
     },
     {
       text: "  Onboard computer ",
@@ -90,7 +95,7 @@ function CarDetails(props) {
     {
       text: "  Audio input ",
       sign: "mark",
-      logo:<span>&#10003;</span>,
+      logo: <span>&#10003;</span>,
     },
     {
       text: "  Long Term Trips ",
@@ -116,7 +121,7 @@ function CarDetails(props) {
   return (
     <div className={styles.detailPage}>
       <div>
-        <BannerUsed pageNameSub="Car Details" pageName="Car Details" />
+        <BannerUsed pageNameSub="Car Details" PageName='Car Details' />
       </div>
 
       <div className={styles.upper_backgroung}></div>
@@ -164,19 +169,23 @@ function CarDetails(props) {
                     {item.text}
                   </div>
                 ))}
-       
               </div>
             </div>
           </Tab>
-          <Tab eventKey="profile" title="Profile">
-            {/* <Sonnet /> */}
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel minima
-            quisquam id itaque necessitatibus? Et molestias dignissimos facilis
-            in commodi quidem dolorum id nobis voluptatum rem? Ea nam sint
-            necessitatibus!
+          <Tab eventKey="description" title="Description">
+            <div
+              className={styles.decription_tab}
+              style={{ whiteSpace: "pre-line" }}
+            >
+              {descriptionInfo.text}
+            </div>
+          </Tab>
+          <Tab eventKey="review" title="Review">
+            <div className={styles.decription_tab}> Coming Soon </div>
           </Tab>
         </Tabs>
       </div>
+      <Footer />
     </div>
   );
 }

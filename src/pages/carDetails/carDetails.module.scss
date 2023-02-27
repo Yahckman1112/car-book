@@ -94,6 +94,7 @@
   @include responsive(phone){
     padding: 20px;
     line-height: 2;
+    margin-bottom: 300px;
   }
 }
 
@@ -107,4 +108,16 @@
 
 .mark{
     color: green;
+}
+
+
+.decription_tab{
+  padding: 50px;
+  padding-top: 5px;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.8;
+  @include responsive(phone){
+    padding: 20px;
+  }
 }
