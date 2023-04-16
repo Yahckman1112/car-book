@@ -1,4 +1,5 @@
 import React from "react";
+import styles from './auth.module.scss'
 import FormInput from "../../../components/input/input";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -54,36 +55,43 @@ function AdminAuth(props) {
     },
   });
   return (
-    <div>
-      <form onSubmit={formik.handleSubmit}>
-        <div>
-          <FormInput
+    <div className={styles.body}>
+        <div className={styles.form_container}>
+            <p className={styles.para1}>Welcome</p>
+
+      <form className={styles.form} onSubmit={formik.handleSubmit}>
+        <div className={styles.form_wrap}>
+          <input
             placeholder="Your name"
             name="email"
             value={formik.values.email}
             onChange={formik.handleChange}
             type="email"
+            className={styles.form_input}
           />
           {formik.touched.email && formik.errors.email && (
-            <p className={""}>{formik.errors.email}</p>
+            <p className={styles.error}>{formik.errors.email}</p>
           )}
         </div>
-        <div>
-          <FormInput
+        <div className={styles.form_wrap}>
+            
+          <input
             placeholder="Your name"
             name="pwd"
             value={formik.values.pwd}
             onChange={formik.handleChange}
             type="password"
+            className={styles.form_input}
           />
           {formik.touched.pwd && formik.errors.pwd && (
-            <p className={""}>{formik.errors.pwd}</p>
+            <p className={styles.error}>{formik.errors.pwd}</p>
           )}
         </div>
-        <Button disabled={isLoading} color="primary" type="submit">
+        <button disabled={isLoading} className={styles.btn} type="submit">
           {isLoading ? 'Authenticating...': 'Login'}
-        </Button>
+        </button>
       </form>
+        </div>
     </div>
   );
 }
