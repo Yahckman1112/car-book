@@ -15,7 +15,7 @@ import Admin from "./pages/admin/admin";
 function App() {
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
 
       <Routes>
         <Route path="/carDetails" element={<CarDetails />} />

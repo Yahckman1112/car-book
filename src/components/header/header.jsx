@@ -35,9 +35,9 @@ function Header(props) {
             <Link to='/about'  className={` ${styles.nav_items}`}>About</Link>
             <Link to='/services'  className={` ${styles.nav_items}`}>Service</Link>
             <Link to='/pricing'  className={` ${styles.nav_items}`}>Pricing</Link>
-            <Link to='cars'  className={` ${styles.nav_items}`}>Car</Link>
+            <Link to='/cars'  className={` ${styles.nav_items}`}>Car</Link>
             <Link to='#'  className={` ${styles.nav_items}`}>Blog</Link>
-            <Link to='contact'  className={` ${styles.nav_items}`}>Contact</Link>
+            <Link to='/contact'  className={` ${styles.nav_items}`}>Contact</Link>
         </nav>
 
 

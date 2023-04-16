@@ -1,4 +1,4 @@
-import React, {useRef, useState}from "react";
+import React, { useRef, useState } from "react";
 import BannerUsed from "./../../components/banner/banner";
 import styles from "./contact.module.scss";
 import FormInput from "./../../components/input/input";
@@ -11,9 +11,10 @@ import * as Yup from "yup";
 import Footer from "../../components/footer/footer";
 
 import Swal from "sweetalert2";
+import Header from "../../components/header/header";
 
 function Contact(props) {
-  const [isLoading, setIsLoading]= useState(false)
+  const [isLoading, setIsLoading] = useState(false);
   const form = useRef();
   const location = [
     {
@@ -50,22 +51,22 @@ function Contact(props) {
     },
     validationSchema: MessageSubmit(),
     onSubmit: (values) => {
-      setIsLoading(true)
+      setIsLoading(true);
       emailjs
         .sendForm(
           "service_j7wz2wa",
           "template_b5kvcic",
           form.current,
           "-vdSzHTq-8uRJgfl7"
-          )
-          .then(
-            (result) => {
-              Swal.fire({
-                icon: "success",
-                title: "Email",
-                text: "Email sent seccessfully",
-              });
-              setIsLoading(false);
+        )
+        .then(
+          (result) => {
+            Swal.fire({
+              icon: "success",
+              title: "Email",
+              text: "Email sent seccessfully",
+            });
+            setIsLoading(false);
             console.log(result);
           },
           (error) => {
@@ -79,8 +80,6 @@ function Contact(props) {
           }
         );
 
-     
-
       formik.handleReset();
     },
   });
@@ -89,6 +88,8 @@ function Contact(props) {
   // console.log(formik.values);
   return (
     <div>
+      < Header/>
+    
       <div>
         <BannerUsed pageNameSub="contact" PageName={"Contact Us"} />
       </div>
@@ -163,7 +164,7 @@ function Contact(props) {
                 )}
               </div>
               <Button disabled={isLoading} color="primary" type="submit">
-                {isLoading? 'Please wait....': 'Send Mail'}
+                {isLoading ? "Please wait...." : "Send Mail"}
               </Button>
             </form>
           </div>

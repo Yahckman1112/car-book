@@ -5,6 +5,7 @@ import carImage from "./../../assets/car-2.jpg";
 import { Link } from "react-router-dom";
 import { Card, CardBody } from "reactstrap";
 import Footer from "./../../components/footer/footer";
+import Header from "../../components/header/header";
 function Cars(props) {
   const cardData = [
     {
@@ -54,6 +55,7 @@ function Cars(props) {
   ];
   return (
     <div>
+      < Header/>
       <div>
         <BannerUsed pageNameSub={"Cars"} PageName="Choose Your Car" />
       </div>

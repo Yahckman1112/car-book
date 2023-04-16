@@ -5,9 +5,11 @@ import Work from "./../../components/input/work/work";
 import styles from "./about.module.scss";
 import { Link } from "react-router-dom";
 import Footer from "./../../components/footer/footer";
+import Header from "../../components/header/header";
 function About(props) {
   return (
     <div>
+      < Header/>
       <div className={styles.banner}>
         <div className={styles.links}>
           <Link className={styles.links_main} to="/">

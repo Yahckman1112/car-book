@@ -7,6 +7,7 @@ import styles from "./carDetails.module.scss";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Footer from "./../../components/footer/footer";
+import Header from "../../components/header/header";
 function CarDetails(props) {
   const descriptionInfo = {
     text: `      Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. 
@@ -120,6 +121,7 @@ function CarDetails(props) {
   ];
   return (
     <div className={styles.detailPage}>
+      < Header/>
       <div>
         <BannerUsed pageNameSub="Car Details" PageName='Car Details' />
       </div>
