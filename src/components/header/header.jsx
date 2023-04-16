@@ -22,11 +22,6 @@ function Header(props) {
      
         setisActive(!isActive)
     }
-
-    // const handleScroll=() =>{
-    //   if(scrollValue>140)
-    //   setScrollValue
-    // }
   return (
     <div>
       <div className={` container ${styles.header}`}>
@@ -67,7 +62,8 @@ function Header(props) {
             <Link to='/services' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}><FcServices size={20}/></span> Service</Link>
             <Link to='/pricing' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}><MdPriceChange size={20}/></span> Pricing</Link>
             <Link to='cars' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}>< IoCarSportSharp size={20}/></span>  Car</Link>
-            <Link to='#' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}>< GrBlog size={20}/></span> Blog</Link>
+            <Link to='#' onClick={handleclose} className={styles.resp_navs}>
+              <span className={styles.resp_navs_logo}>< GrBlog size={20}/></span> Blog</Link>
             <Link to='/contact' onClick={handleclose} className={styles.resp_navs}> <span className={styles.resp_navs_logo}>< MdContactMail size={20}/></span>  Contact</Link>
             
           </div>

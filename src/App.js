@@ -10,6 +10,7 @@ import Pricing from "./pages/pricing/pricing";
 import Contact from "./pages/contact/contact";
 import Cars from "./pages/cars/cars";
 import CarDetails from "./pages/carDetails/carDetails";
+import Admin from "./pages/admin/admin";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/about" element={<About />} />
+        <Route path="/admin/*" element={<Admin />} />
         <Route path="/" element={<Home />} />
       </Routes>
     </div>
