@@ -3,7 +3,6 @@ import { FaAccessibleIcon } from "react-icons/fa";
 import styles from "./services.module.scss";
 import { RiCarWashingLine, RiPoliceCarLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
-import { Fade } from "react-reveal";
 import {
   MdOutlineDirectionsCar,
   MdOutlineDirectionsCarFilled,
@@ -13,13 +12,13 @@ function Services(props) {
   return (
     <div className={styles.service}>
 
-      <Fade bottom>
+      
       <p className={styles.para1}>SERVICES</p>
       <p className={styles.para2}>Our Latest Services</p>
 
-      </Fade>
+    
 
-      <Fade bottom>
+    
 
       <div className="container">
         <div className="row">
@@ -66,8 +65,7 @@ function Services(props) {
           </div>
         </div>
       </div>
-      </Fade>
-
+  
       <ServiceFooter />
     </div>
   );

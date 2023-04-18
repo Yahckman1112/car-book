@@ -3,7 +3,6 @@ import styles from "./footer.module.scss";
 import { carText, logo, links, customers } from "./text";
 import { Link } from "react-router-dom";
 import { FaLocationArrow } from "react-icons/fa";
-import { Zoom } from "react-reveal";
 import { MdLocationPin, MdOutlineMail, MdPhoneIphone } from "react-icons/md";
 function Footer(props) {
   return (
@@ -18,11 +17,11 @@ function Footer(props) {
 
           <div className={styles.social}>
             {logo.map((logo, i) => (
-              <Zoom>
+            
                 <a href={logo.link} className={styles.social_logo}>
                   {logo.logo}
                 </a>
-              </Zoom>
+            
             ))}
           </div>
         </div>

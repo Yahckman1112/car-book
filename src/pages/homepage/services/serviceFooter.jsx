@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./services.module.scss";
-import {Fade} from 'react-reveal'
 import {Link} from 'react-router-dom'
 function ServiceFooter(props) {
   return (
@@ -9,7 +8,7 @@ function ServiceFooter(props) {
         <div className={styles.footer_body}>
           <div className={styles.footer_body_main}></div>
           <div className={styles.footer_body_sub}>
-            <Fade bottom>
+          
               <div className={styles.footer_content}>
                 <p className={styles.footer_content_para}>
                   Do You Want To Earn With Us? So Don't Be Late.
@@ -19,7 +18,7 @@ function ServiceFooter(props) {
                   Become a driver
                 </Link>
               </div>
-            </Fade>
+          
           </div>
         </div>
       </div>

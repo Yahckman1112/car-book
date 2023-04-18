@@ -10,16 +10,19 @@ import Booking from "./bookings/booking";
 function AdminPage(props) {
   return (
     <div>
+      <div style={{ display: "flex" }}>
+        <div>
+          <SideBar />
+        </div>
 
-      
-      <SideBar />
-    
-
-      <Routes>
-        <Route path="dashboard" element={<Dashboard />} />
-        <Route path="drivers" element={<Drivers />} />
-        <Route path="booking" element={<Booking />} />
-      </Routes>
+        <div style={{padding:'30px' , flex:1}}>
+          <Routes>
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="drivers" element={<Drivers />} />
+            <Route path="booking" element={<Booking />} />
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }

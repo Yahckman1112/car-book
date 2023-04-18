@@ -5,12 +5,11 @@ import { Link } from "react-router-dom";
 import { FaRegHandshake, FaTable } from "react-icons/fa";
 import { RiUserLocationFill } from "react-icons/ri";
 import { AiOutlineCar } from "react-icons/ai";
-import Fade from 'react-reveal/Fade'
+
 function Book(props) {
   return (
     <div>
-      < Fade bottom>
-      <div className={`container ${styles.book}`}>
+        <div className={`container ${styles.book}`}>
         <div className="row">
           <div className="col-12 col-lg-4 col-md-4">
             <form className={styles.form}>
@@ -66,7 +65,7 @@ function Book(props) {
           </div>
         </div>
       </div>
-      </Fade>
+      
     </div>
   );
 }
