@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './auth.module.scss'
-import FormInput from "../../../components/input/input";
 import { useFormik } from "formik";
+import { Route, Routes } from "react-router-dom";
 import * as Yup from "yup";
 import { Button } from "reactstrap";
 import { auth } from "../../../firebas";
@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import  Swal  from 'sweetalert2';
+import Dashboard from "../Dashboard/Dashboard";
 
 function AdminAuth(props) {
   const [isLoading, setIsLoading] = useState(false);
@@ -32,7 +33,7 @@ function AdminAuth(props) {
      await signInWithEmailAndPassword(auth, values.email, values.pwd)
         .then((userCredential) => {
           const user = userCredential.user;
-          navigate("/");
+          navigate("/adminAuth");
           console.log(user);
         })
         .catch((error) => {

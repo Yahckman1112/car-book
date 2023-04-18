@@ -1,28 +1,27 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import SideBar from "./sideBar/sideBar";
 import AdminAuth from "./AuthPage/AdminAuth";
+import Dashboard from "./Dashboard/Dashboard";
+import Drivers from "./drivers/drivers";
+import Booking from "./bookings/booking";
 // import Cars from "./cars/cars";
 // import Blogs from "./blogs/blogs";
-function Admin(props) {
+function AdminPage(props) {
   return (
     <div>
 
-        < AdminAuth/>
-
-
-
-
-
-        
-      {/* <SideBar />
+      
+      <SideBar />
+    
 
       <Routes>
-        <Route path="/cars" element={<Cars />} />
-        <Route path="/blogs" element={<Blogs />} />
-      </Routes> */}
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="drivers" element={<Drivers />} />
+        <Route path="booking" element={<Booking />} />
+      </Routes>
     </div>
   );
 }
 
-export default Admin;
+export default AdminPage;
