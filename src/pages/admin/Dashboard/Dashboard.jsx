@@ -5,9 +5,10 @@ import Expense from "./Pannel/expense";
 function Dashboard(props) {
   return (
     <div>
-      <Expense />
+      {/* <Expense /> */}
       dash board
       {/* < Link to='/dashboard'> dash </Link> */}
+
     </div>
   );
 }

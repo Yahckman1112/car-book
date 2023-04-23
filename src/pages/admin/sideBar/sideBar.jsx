@@ -34,6 +34,11 @@ function SideBar(props) {
       link: "/adminAuth/dashboard",
     },
     {
+      title: "Forms",
+      icon: <AiOutlineTransaction size={20} />,
+      link: "/adminAuth/adminForms",
+    },
+    {
       title: "Payment Details",
       icon: <MdOutlinePayment size={20} />,
       link: "/adminAuth/dashboard",

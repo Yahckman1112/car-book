@@ -3,6 +3,10 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import {getDatabase} from 'firebase/database'
 import {getAuth} from 'firebase/auth'
+import {getFirestore} from 'firebase/firestore'
+
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyB6ytbdWsM38AMhqSYbaYsAtecCG2sYpzA",
   authDomain: "car-book-2339b.firebaseapp.com",
@@ -18,5 +22,6 @@ const app = initializeApp(firebaseConfig);
 //  const analytics = getAnalytics(app);
 export const db = getDatabase(app)
 export const auth = getAuth(app)
+export const fireDB = getFirestore(app)
 
 export default app

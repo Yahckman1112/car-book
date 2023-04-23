@@ -1,0 +1,23 @@
+.card_body {
+  box-shadow: 0 5px 10px 0 rgba(230, 230, 243, 0.88);
+  max-width: 90%;
+
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid #e4e4f4;
+  border-radius: 0.25rem;
+  padding: 1.5em;
+}
+
+.Car_Details {
+  color: #001737;
+  margin-bottom: 1.5rem;
+  text-transform: capitalize;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.errorMsg{
+    font-size: 14px;
+    color: red;
+}
