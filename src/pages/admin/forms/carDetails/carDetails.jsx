@@ -15,12 +15,13 @@ const CarDetailsValidator = () => {
     carName: Yup.string().required("car name is required"),
     price: Yup.number().required("price is required").positive().integer(),
     details: Yup.string().required("details is required"),
-    carImage: Yup.mixed().required('An Image is required')
+    // carImage: Yup.mixed().required('An Image is required')
   });
 };
 
 function CarDetails(props) {
-  const [details, setDetails] = useState([]);
+  // const [details, setDetails] = useState([]);
+  
   const userCollectionRef = collection(fireDB, "carDetails");
   const formik = useFormik({
     initialValues: {
@@ -63,7 +64,7 @@ function CarDetails(props) {
     <div className={styles.card_body}>
       <p className={styles.Car_Details}> Car Details </p>
       <Form onSubmit={formik.handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        {/* <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Car Image</Form.Label>
           <Form.Control
             value={formik.values.name}
@@ -75,7 +76,7 @@ function CarDetails(props) {
           {formik.touched.carImage && formik.errors.carImage && (
             <p className={styles.errorMsg}>{formik.errors.carImage}</p>
           )}
-        </Form.Group>
+        </Form.Group> */}
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Car name</Form.Label>
@@ -119,11 +120,6 @@ function CarDetails(props) {
           )}
         </Form.Group>
 
-        {/* <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="file" placeholder="Enter email" />
-          
-        </Form.Group> */}
 
         <Button variant="info" type="submit">
           Submit

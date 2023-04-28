@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BannerUsed from "../../components/banner/banner";
 import styles from "./cars.module.scss";
 import carImage from "./../../assets/car-2.jpg";
@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { Card, CardBody } from "reactstrap";
 import Footer from "./../../components/footer/footer";
 import Header from "../../components/header/header";
+import { fireDB } from "../../firebas";
+import { collection, getDocs } from "firebase/firestore";
 function Cars(props) {
   const cardData = [
     {
@@ -53,14 +55,26 @@ function Cars(props) {
       carName: "Grando",
     },
   ];
+  const [cars, setCars] = useState([]);
+  const carCollectionRef = collection(fireDB, "carDetails");
+
+  useEffect(() => {
+    async function getData() {
+      const data = await getDocs(carCollectionRef);
+      console.log(data);
+      setCars(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    }
+    getData();
+  }, []);
+
   return (
     <div>
-      < Header/>
+      <Header />
       <div>
         <BannerUsed pageNameSub={"Cars"} PageName="Choose Your Car" />
       </div>
       <div className={`row ${styles.cars}`}>
-        {cardData.map((item) => (
+        {cars.map((item) => (
           <div className="col-12 col-lg-4 col-md-4">
             <Card
               className={styles.car_card}
@@ -71,8 +85,8 @@ function Cars(props) {
             >
               <img
                 alt="Card cap"
-                src={item.carImage}
-                width="100%"
+                src={carImage}
+                max-width="100%"
                 style={{ borderRadius: "8px" }}
               />
               <CardBody>
@@ -85,7 +99,7 @@ function Cars(props) {
                   <p className={styles.card_para2}>
                     <p className={styles.card_para2_main}>Cheverolette</p>
                     <p className={styles.card_para2_sub}>
-                      $500
+                      ${item.price}
                       <span className={styles.day}> /day</span>
                     </p>
                   </p>
@@ -102,9 +116,6 @@ function Cars(props) {
             </Card>
           </div>
         ))}
-
-        <div className="col-12 col-lg-4 col-md-4"></div>
-        <div className="col-12 col-lg-4 col-md-4"></div>
       </div>
       <Footer />
     </div>
