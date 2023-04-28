@@ -8,74 +8,42 @@ import Footer from "./../../components/footer/footer";
 import Header from "../../components/header/header";
 import { fireDB } from "../../firebas";
 import { collection, getDocs } from "firebase/firestore";
+import { CgSidebar } from "react-icons/cg";
+import Loader from './../../components/Loader/loader';
 function Cars(props) {
-  const cardData = [
-    {
-      carImage,
-      carName: "Grando",
-    },
-    {
-      carImage,
-      carName: "Grando",
-    },
-    {
-      carImage,
-      carName: "Grando",
-    },
-    {
-      carImage,
-      carName: "Grando",
-    },
-    {
-      carImage,
-      carName: "Grando",
-    },
-    {
-      carImage,
-      carName: "Grando",
-    },
-    {
-      carImage,
-      carName: "Grando",
-    },
-    {
-      carImage,
-      carName: "Grando",
-    },
-    {
-      carImage,
-      carName: "Grando",
-    },
-    {
-      carImage,
-      carName: "Grando",
-    },
-    {
-      carImage,
-      carName: "Grando",
-    },
-  ];
   const [cars, setCars] = useState([]);
   const carCollectionRef = collection(fireDB, "carDetails");
-
+  const [isFetching, setIsFetching] = useState(false)
   useEffect(() => {
     async function getData() {
-      const data = await getDocs(carCollectionRef);
-      console.log(data);
-      setCars(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      
+      setIsFetching(true)
+      try {
+        const data = await getDocs(carCollectionRef);
+        setCars(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        setIsFetching(false)
+      }
+      
+      catch (error) {
+        console.log(error.response);
+      }
+   
     }
+   
+
     getData();
   }, []);
 
   return (
     <div>
+      {isFetching && < Loader/> }
       <Header />
       <div>
         <BannerUsed pageNameSub={"Cars"} PageName="Choose Your Car" />
       </div>
       <div className={`row ${styles.cars}`}>
-        {cars.map((item) => (
-          <div className="col-12 col-lg-4 col-md-4">
+        {cars.map((item,id) => (
+          <div key={id}  className="col-12 col-lg-4 col-md-4">
             <Card
               className={styles.car_card}
               style={{
