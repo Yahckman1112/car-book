@@ -8,7 +8,25 @@ import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Footer from "./../../components/footer/footer";
 import Header from "../../components/header/header";
+import { fireDB } from "../../firebas";
+import { useParams } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
+import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 function CarDetails(props) {
+  const params = useParams();
+  const id = params.id;
+  const [car, setCar] = useState([]);
+  const carRef = doc(fireDB, "carDetails", id);
+
+  useEffect(() => {
+    async function getData() {
+      const data = await getDoc(carRef);
+      console.log(data.data().carName);
+      setCar(data.data());
+    }
+    getData();
+  }, []);
   const descriptionInfo = {
     text: `      Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. 
     When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the  subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way. `,
@@ -121,9 +139,9 @@ function CarDetails(props) {
   ];
   return (
     <div className={styles.detailPage}>
-      < Header/>
+      <Header />
       <div>
-        <BannerUsed pageNameSub="Car Details" PageName='Car Details' />
+        <BannerUsed pageNameSub="Car Details" PageName="Car Details" />
       </div>
 
       <div className={styles.upper_backgroung}></div>

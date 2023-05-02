@@ -11,6 +11,8 @@ import { collection, getDocs } from "firebase/firestore";
 import { CgSidebar } from "react-icons/cg";
 import Loader from './../../components/Loader/loader';
 function Cars(props) {
+
+  
   const [cars, setCars] = useState([]);
   const carCollectionRef = collection(fireDB, "carDetails");
   const [isFetching, setIsFetching] = useState(false)
@@ -75,7 +77,7 @@ function Cars(props) {
                     <Link className={` ${styles.btn_book} `} to="#">
                       Book Now
                     </Link>
-                    <Link className={` ${styles.btn_det}`} to="/carDetails">
+                    <Link className={` ${styles.btn_det}`} to={`/cars/${item.id}`}>
                       Details{" "}
                     </Link>
                   </div>

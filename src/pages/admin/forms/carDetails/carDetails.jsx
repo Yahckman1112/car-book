@@ -20,7 +20,8 @@ const CarDetailsValidator = () => {
 };
 
 function CarDetails(props) {
-  // const [details, setDetails] = useState([]);
+  // const [details, id] = useState([]);
+  const [isLoading, setIsLoading]= useState(false)
   
   const userCollectionRef = collection(fireDB, "carDetails");
   const formik = useFormik({
@@ -31,6 +32,7 @@ function CarDetails(props) {
     },
     validationSchema: CarDetailsValidator(),
     onSubmit: async (values) => {
+      setIsLoading(true)
         const imageRef= ref(storage, 'carImages')
         uploadBytes(imageRef, values.carImage)
       try {
@@ -40,6 +42,7 @@ function CarDetails(props) {
           details: values.details,
           price: Number(values.price),
         });
+        setIsLoading(false)
 
         Swal.fire({
           position: "top-end",
@@ -56,6 +59,7 @@ function CarDetails(props) {
           text: "Something went wrong",
         });
       }
+      setIsLoading(false)
       formik.handleReset();
     },
   });
@@ -64,7 +68,8 @@ function CarDetails(props) {
     <div className={styles.card_body}>
       <p className={styles.Car_Details}> Car Details </p>
       <Form onSubmit={formik.handleSubmit}>
-        {/* <Form.Group className="mb-3" controlId="formBasicEmail">
+    
+    {/* <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Car Image</Form.Label>
           <Form.Control
             value={formik.values.name}
@@ -77,7 +82,6 @@ function CarDetails(props) {
             <p className={styles.errorMsg}>{formik.errors.carImage}</p>
           )}
         </Form.Group> */}
-
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Car name</Form.Label>
           <Form.Control
@@ -121,8 +125,8 @@ function CarDetails(props) {
         </Form.Group>
 
 
-        <Button variant="info" type="submit">
-          Submit
+        <Button disabled={isLoading} variant="info" type="submit">
+          {isLoading? 'saving...': 'Submit'}
         </Button>
       </Form>
     </div>
