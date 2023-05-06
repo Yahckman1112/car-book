@@ -25,7 +25,6 @@ function Cars(props) {
         setCars(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         setIsFetching(false)
       }
-      
       catch (error) {
         console.log(error.response);
       }
