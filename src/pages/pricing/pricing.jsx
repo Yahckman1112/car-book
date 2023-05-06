@@ -4,6 +4,7 @@ import PriceTable from "./table";
 import Header from "../../components/header/header";
 
 function Pricing(props) {
+
   return (
     <div>
       < Header/>

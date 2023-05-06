@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^13.2.1",
     "bootstrap": "^5.2.3",
     "emailjs": "^4.0.1",
+    "env-cmd": "^10.1.0",
     "firebase": "^9.19.1",
     "font-awesome": "^4.7.0",
     "formik": "^2.2.9",
