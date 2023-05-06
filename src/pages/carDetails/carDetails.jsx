@@ -9,8 +9,10 @@ import { fireDB } from "../../firebas";
 import { doc, getDoc } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import { carInfos, tabInfo } from "./carData";
+import Loader from "../../components/Loader/loader";
 
 function CarDetails(props) {
+  const [isFetching, setIsFetching] = useState(false);
   const params = useParams();
   const id = params.id;
   const [car, setCar] = useState([]);
@@ -18,15 +20,20 @@ function CarDetails(props) {
 
   useEffect(() => {
     async function getData() {
-      const data = await getDoc(carRef);
-      console.log(data.data().carName);
-      setCar(data.data());
+      setIsFetching(true);
+      try {
+        const data = await getDoc(carRef);
+        console.log(data.data().carName);
+        setCar(data.data());
+        setIsFetching(false);
+      } catch (error) {}
     }
     getData();
   }, []);
 
   return (
     <div className={styles.detailPage}>
+      {isFetching && <Loader />}
       <Header />
       <div>
         <BannerUsed pageNameSub="Car Details" PageName="Car Details" />
@@ -36,7 +43,7 @@ function CarDetails(props) {
 
       <div className={styles.features}>
         <p className={styles.para1}>Chevrolette</p>
-        <p className={styles.para2}>Mercedes Grand Sedan</p>
+        <p className={styles.para2}>{car.carName}</p>
         <div className="container">
           <div className="row">
             {carInfos.map((item, i) => (

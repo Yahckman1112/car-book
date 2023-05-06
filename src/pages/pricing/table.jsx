@@ -2,58 +2,52 @@ import React from "react";
 import car from "./../../assets/car-4.jpg";
 import ReactStars from "react-rating-stars-component";
 import styles from "./pricing.module.scss";
+import { collection, getDoc, getDocs,doc } from "firebase/firestore";
+import { useEffect } from "react";
+import { useState } from "react";
+import { fireDB } from "../../firebas";
+import Modal from "react-bootstrap/Modal";
+import  {RentingModal}  from "./rentingModal";
+import Button from "react-bootstrap/Button";
+import { Link,useParams } from "react-router-dom";
+import {  } from "firebase/firestore";
+// import { fireDB } from "../../firebas";
+
+
 
 function PriceTable(props) {
+  
+  const [cars, setCars] = useState([]);
+  const carsRef = collection(fireDB, "carDetails");
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  useEffect(() => {
+    async function getData() {
+      const data = await getDocs(carsRef);
+      setCars(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      console.log(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    }
+    getData();
+  }, []);
   const ratingChanged = (newRating) => {
     console.log(newRating);
   };
 
-  const tableData=[
-    {
-        carImage: car,
-        carName: 'Chevrolet SUV car',
-        priceDay: '350',
-        priceWeek: '150',
-        priceLease: '650',
-    },
-    {
-        carImage: car,
-        carName: 'Chevrolet SUV car',
-        priceDay: '350',
-        priceWeek: '150',
-        priceLease: '650',
-    },
-    {
-        carImage: car,
-        carName: 'Chevrolet SUV car',
-        priceDay: '350',
-        priceWeek: '150',
-        priceLease: '650',
-    },
-    {
-        carImage: car,
-        carName: 'Chevrolet SUV car',
-        priceDay: '350',
-        priceWeek: '150',
-        priceLease: '650',
-    },
-    {
-        carImage: car,
-        carName: 'Chevrolet SUV car',
-        priceDay: '350',
-        priceWeek: '150',
-        priceLease: '650',
-    },
-    {
-        carImage: car,
-        carName: 'Chevrolet SUV car',
-        priceDay: '350',
-        priceWeek: '150',
-        priceLease: '650',
-    },
-  ]
+
+  //   const params = useParams();
+  // const id = params.id;
+  // // const [car, setCar] = useState([]);
+  // const carRef = doc(fireDB, "carDetails", id);
+  // const car =  getDoc(carRef)
+  // console.log( car.data());
+
+
+  
+
   return (
-    <div className=" container" >
+    <div className=" container">
       <table class="table table-responsive-md ">
         <thead>
           <tr>
@@ -71,78 +65,83 @@ function PriceTable(props) {
           </tr>
         </thead>
         <tbody>
-            {tableData.map((item,i)=>(
+          {cars.map((item, i) => (
+            <tr>
+              <td>
+                <img src={car} alt="" max-width={"200px"} height="150px" />{" "}
+              </td>
 
-          <tr>
-            <td>
-              <img src={item.carImage} alt="" width={"200px"} height="150px" />{" "}
-            </td>
-
-            <td className={styles.product_name}>
-              <div className={styles.product_name_para}>
-
-              <p >{item.carName}</p>
-              <p>
-                <ReactStars
-                  count={6}
-                  onChange={ratingChanged}
-                  size={20}
-                  activeColor="#ffd700"
-                />
-              </p>
-              </div>
-            </td>
-            <td className={`${styles.price}`}>
-              <p>
-                <span className={styles.num}>
-                  {" "}
-                  <small className={styles.currency}>$</small> {item.priceDay}{" "}
-                </span>
-                <span className={styles.per}>/per hour</span>
-              </p>
-              <p className={styles.subHeading}>$3/hour fuel charges</p>
-              <p>
-                <a href="#" className={styles.btn_custom}>
-                  Rent a Car
-                </a>
-              </p>
-            </td>
-            <td className={`${styles.price}`}>
-              {" "}
-              <p>
-                <span className={styles.num}>
-                  {" "}
-                  <small className={styles.currency}>$</small> {item.priceWeek}{" "}
-                </span>
-                <span className={styles.per}>/per hour</span>
-              </p>
-              <p className={styles.subHeading}>$3/hour fuel charges</p>
-              <p>
-                <a href="#" className={styles.btn_custom}>
-                  Rent a Car
-                </a>
-              </p>
-            </td>
-            <td className={`${styles.price}`}>
-              {" "}
-              <p>
-                <span className={styles.num}>
-                  {" "}
-                  <small className={styles.currency}>$</small> {item.priceLease} {" "}
-                </span>
-                <span className={styles.per}>/per hour</span>
-              </p>
-              <p className={styles.subHeading}>$3/hour fuel charges</p>
-              <p>
-                <a href="#" className={styles.btn_custom}>
-                  Rent a Car
-                </a>
-              </p>
-            </td>
-          </tr>
-            ))}
+              <td className={styles.product_name}>
+                <div className={styles.product_name_para}>
+                  <p>{item.carName}</p>
+                  <p>
+                    <ReactStars
+                      count={6}
+                      onChange={ratingChanged}
+                      size={20}
+                      activeColor="#ffd700"
+                    />
+                  </p>
+                </div>
+              </td>
+              <td className={`${styles.price}`}>
+                <p>
+                  <span className={styles.num}>
+                    {" "}
+                    <small className={styles.currency}>$</small> {item.priceDay}{" "}
+                  </span>
+                  <span className={styles.per}>/per hour</span>
+                </p>
+                <p className={styles.subHeading}>$3/hour fuel charges</p>
+                <p>
+                  <Link to='#'  className={styles.btn_custom}>
+                    Rent a Car
+                  </Link>
+                </p>
+              </td>
+              <td className={`${styles.price}`}>
+                {" "}
+                <p>
+                  <span className={styles.num}>
+                    {" "}
+                    <small className={styles.currency}>$</small>{" "}
+                    {item.priceWeek}{" "}
+                  </span>
+                  <span className={styles.per}>/per hour</span>
+                </p>
+                <p className={styles.subHeading}>$3/hour fuel charges</p>
+                <p>
+                  <a href="#" className={styles.btn_custom}>
+                    Rent a Car
+                  </a>
+                </p>
+              </td>
+              <td className={`${styles.price}`}>
+                {" "}
+                <p>
+                  <span className={styles.num}>
+                    {" "}
+                    <small className={styles.currency}>$</small>{" "}
+                    {item.priceMonth}{" "}
+                  </span>
+                  <span className={styles.per}>/per hour</span>
+                </p>
+                <p className={styles.subHeading}>$3/hour fuel charges</p>
+                <p>
+                  <a href="#" className={styles.btn_custom}>
+                    Rent a Car
+                  </a>
+                </p>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
+
+      {/* rent per day */}
+      <Modal show={show} onHide={handleClose}>
+        <RentingModal car={car}/>
+      </Modal>
     </div>
   );
 }

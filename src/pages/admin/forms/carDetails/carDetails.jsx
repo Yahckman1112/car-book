@@ -13,36 +13,41 @@ import { ref, uploadBytes } from "firebase/storage";
 const CarDetailsValidator = () => {
   return Yup.object({
     carName: Yup.string().required("car name is required"),
-    price: Yup.number().required("price is required").positive().integer(),
+    priceDay: Yup.number().required("price is required").positive().integer(),
+    priceWeek: Yup.number().required("price is required").positive().integer(),
+    priceMonth: Yup.number().required("price is required").positive().integer(),
     details: Yup.string().required("details is required"),
     // carImage: Yup.mixed().required('An Image is required')
   });
 };
 
 function CarDetails(props) {
-  // const [details, id] = useState([]);
-  const [isLoading, setIsLoading]= useState(false)
-  
+  const [isLoading, setIsLoading] = useState(false);
+
   const userCollectionRef = collection(fireDB, "carDetails");
   const formik = useFormik({
     initialValues: {
       carName: "",
-      price: "",
+      priceDay: "",
+      priceWeek: "",
+      priceMonth: "",
       details: "",
     },
     validationSchema: CarDetailsValidator(),
     onSubmit: async (values) => {
-      setIsLoading(true)
-        const imageRef= ref(storage, 'carImages')
-        uploadBytes(imageRef, values.carImage)
+      setIsLoading(true);
+      // const imageRef= ref(storage, 'carImages')
+      // uploadBytes(imageRef, values.carImage)
       try {
         console.log(values);
         await addDoc(userCollectionRef, {
           carName: values.carName,
           details: values.details,
-          price: Number(values.price),
+          priceDay: values.priceDay,
+          priceWeek: values.priceWeek,
+          priceMonth: values.priceMonth,
         });
-        setIsLoading(false)
+        setIsLoading(false);
 
         Swal.fire({
           position: "top-end",
@@ -59,7 +64,7 @@ function CarDetails(props) {
           text: "Something went wrong",
         });
       }
-      setIsLoading(false)
+      setIsLoading(false);
       formik.handleReset();
     },
   });
@@ -68,8 +73,7 @@ function CarDetails(props) {
     <div className={styles.card_body}>
       <p className={styles.Car_Details}> Car Details </p>
       <Form onSubmit={formik.handleSubmit}>
-    
-    {/* <Form.Group className="mb-3" controlId="formBasicEmail">
+        {/* <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Car Image</Form.Label>
           <Form.Control
             value={formik.values.name}
@@ -101,12 +105,38 @@ function CarDetails(props) {
           <Form.Control
             value={formik.values.name}
             onChange={formik.handleChange}
-            name="price"
+            name="priceDay"
             type="number"
             placeholder=""
           />
-          {formik.touched.price && formik.errors.price && (
-            <p className={styles.errorMsg}>{formik.errors.price}</p>
+          {formik.touched.priceDay && formik.errors.priceDay && (
+            <p className={styles.errorMsg}>{formik.errors.priceDay}</p>
+          )}
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Car Price per Week</Form.Label>
+          <Form.Control
+            value={formik.values.name}
+            onChange={formik.handleChange}
+            name="priceWeek"
+            type="number"
+            placeholder=""
+          />
+          {formik.touched.priceWeek && formik.errors.priceWeek && (
+            <p className={styles.errorMsg}>{formik.errors.priceWeek}</p>
+          )}
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Car Price per Month</Form.Label>
+          <Form.Control
+            value={formik.values.name}
+            onChange={formik.handleChange}
+            name="priceMonth"
+            type="number"
+            placeholder=""
+          />
+          {formik.touched.priceMonth && formik.errors.priceMonth && (
+            <p className={styles.errorMsg}>{formik.errors.priceMonth}</p>
           )}
         </Form.Group>
 
@@ -124,9 +154,8 @@ function CarDetails(props) {
           )}
         </Form.Group>
 
-
         <Button disabled={isLoading} variant="info" type="submit">
-          {isLoading? 'saving...': 'Submit'}
+          {isLoading ? "saving..." : "Submit"}
         </Button>
       </Form>
     </div>

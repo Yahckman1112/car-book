@@ -12,7 +12,7 @@ import { CgSidebar } from "react-icons/cg";
 import Loader from './../../components/Loader/loader';
 function Cars(props) {
 
-  
+
   const [cars, setCars] = useState([]);
   const carCollectionRef = collection(fireDB, "carDetails");
   const [isFetching, setIsFetching] = useState(false)
@@ -69,7 +69,7 @@ function Cars(props) {
                   <p className={styles.card_para2}>
                     <p className={styles.card_para2_main}>Cheverolette</p>
                     <p className={styles.card_para2_sub}>
-                      ${item.price}
+                      ${item.priceDay}
                       <span className={styles.day}> /day</span>
                     </p>
                   </p>
