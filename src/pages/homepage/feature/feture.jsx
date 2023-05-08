@@ -1,51 +1,15 @@
 import React from "react";
 import styles from "./feature.module.scss";
 import FetureCard from "./fetureCard";
-import img from "./../../../assets/car-4.jpg";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { carInfo } from "./feature";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 function Feture(props) {
-  const carInfo = [
-    {
-      image: img,
-      carName: "Givencci",
-      days: "500",
-    },
-    {
-      image: img,
-      carName: "Givencci",
-      days: "500",
-    },
-    {
-      image: img,
-      carName: "Givencci",
-      days: "500",
-    },
-    {
-      image: img,
-      carName: "Givencci",
-      days: "500",
-    },
-    {
-      image: img,
-      carName: "Givencci",
-      days: "500",
-    },
-    {
-      image: img,
-      carName: "Givencci",
-      days: "500",
-    },
-    {
-      image: img,
-      carName: "Givencci",
-      days: "500",
-    },
-  ];
+  
   return (
     <div className={styles.feture}>
      
