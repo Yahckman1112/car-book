@@ -8,14 +8,13 @@ import {getStorage} from 'firebase/storage'
 
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
-  measurementId: process.env.REACT_APP_FIREBASE_MEASEUREMENT_ID,
-  
+  apiKey: "AIzaSyB6ytbdWsM38AMhqSYbaYsAtecCG2sYpzA",
+  authDomain: "car-book-2339b.firebaseapp.com",
+  projectId: "car-book-2339b",
+  storageBucket: "car-book-2339b.appspot.com",
+  messagingSenderId: "150713261050",
+  appId: "1:150713261050:web:e106912a5a46e5d5a9a243",
+  measurementId: "G-9RJPVNTRFS"
 };
 
 // Initialize Firebase
