@@ -61,7 +61,12 @@
   }
 
 }
-
+.carName{
+  text-decoration: none;
+  &:hover{
+    text-decoration: none;
+  }
+}
 .card_btn{
     padding-top: 20px;
 }
