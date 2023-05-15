@@ -2,32 +2,34 @@ import React from "react";
 import car from "./../../assets/car-4.jpg";
 import ReactStars from "react-rating-stars-component";
 import styles from "./pricing.module.scss";
-import { collection, getDoc, getDocs,doc } from "firebase/firestore";
+import { collection, getDoc, getDocs, doc } from "firebase/firestore";
 import { useEffect } from "react";
 import { useState } from "react";
 import { fireDB } from "../../firebas";
 import Modal from "react-bootstrap/Modal";
-import  {RentingModal}  from "./rentingModal";
+// import  {RentingModal}  from "./rentingModal";
 import Button from "react-bootstrap/Button";
-import { Link,useParams } from "react-router-dom";
-import {  } from "firebase/firestore";
+import { Link, useParams } from "react-router-dom";
+import {} from "firebase/firestore";
+import Loader from "../../components/Loader/loader";
 // import { fireDB } from "../../firebas";
 
-
-
 function PriceTable(props) {
-  
   const [cars, setCars] = useState([]);
   const carsRef = collection(fireDB, "carDetails");
-  const [show, setShow] = useState(false);
+  const [isFetching, setIsfetching] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   useEffect(() => {
     async function getData() {
-      const data = await getDocs(carsRef);
-      setCars(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-      console.log(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setIsfetching(true);
+      try {
+        const data = await getDocs(carsRef);
+        setCars(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        console.log(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        setIsfetching(false);
+      } catch (error) {
+        console.log(error);
+      }
     }
     getData();
   }, []);
@@ -35,19 +37,9 @@ function PriceTable(props) {
     console.log(newRating);
   };
 
-
-  //   const params = useParams();
-  // const id = params.id;
-  // // const [car, setCar] = useState([]);
-  // const carRef = doc(fireDB, "carDetails", id);
-  // const car =  getDoc(carRef)
-  // console.log( car.data());
-
-
-  
-
   return (
     <div className=" container">
+      {isFetching && <Loader />}
       <table class="table table-responsive-md ">
         <thead>
           <tr>
@@ -94,7 +86,7 @@ function PriceTable(props) {
                 </p>
                 <p className={styles.subHeading}>$3/hour fuel charges</p>
                 <p>
-                  <Link to='#'  className={styles.btn_custom}>
+                  <Link to={`/cars/${item.id}`} className={styles.btn_custom}>
                     Rent a Car
                   </Link>
                 </p>
@@ -111,7 +103,7 @@ function PriceTable(props) {
                 </p>
                 <p className={styles.subHeading}>$3/hour fuel charges</p>
                 <p>
-                  <a href="#" className={styles.btn_custom}>
+                  <a href={`/cars/${item.id}`} className={styles.btn_custom}>
                     Rent a Car
                   </a>
                 </p>
@@ -128,7 +120,7 @@ function PriceTable(props) {
                 </p>
                 <p className={styles.subHeading}>$3/hour fuel charges</p>
                 <p>
-                  <a href="#" className={styles.btn_custom}>
+                  <a href={`/cars/${item.id}`} className={styles.btn_custom}>
                     Rent a Car
                   </a>
                 </p>
@@ -137,11 +129,6 @@ function PriceTable(props) {
           ))}
         </tbody>
       </table>
-
-      {/* rent per day */}
-      <Modal show={show} onHide={handleClose}>
-        <RentingModal car={car}/>
-      </Modal>
     </div>
   );
 }

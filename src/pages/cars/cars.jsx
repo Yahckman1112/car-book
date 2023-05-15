@@ -8,43 +8,43 @@ import Footer from "./../../components/footer/footer";
 import Header from "../../components/header/header";
 import { fireDB } from "../../firebas";
 import { collection, getDocs } from "firebase/firestore";
-import { CgSidebar } from "react-icons/cg";
-import Loader from './../../components/Loader/loader';
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+
+import Loader from "./../../components/Loader/loader";
 function Cars(props) {
+  const [show, setShow] = useState(false);
 
-
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const [cars, setCars] = useState([]);
   const carCollectionRef = collection(fireDB, "carDetails");
-  const [isFetching, setIsFetching] = useState(false)
+  const [isFetching, setIsFetching] = useState(false);
   useEffect(() => {
     async function getData() {
-      
-      setIsFetching(true)
+      setIsFetching(true);
       try {
         const data = await getDocs(carCollectionRef);
         setCars(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-        setIsFetching(false)
-      }
-      catch (error) {
+        setIsFetching(false);
+      } catch (error) {
         console.log(error.response);
       }
-   
     }
-   
 
     getData();
   }, []);
 
   return (
     <div>
-      {isFetching && < Loader/> }
+      {isFetching && <Loader />}
       <Header />
       <div>
         <BannerUsed pageNameSub={"Cars"} PageName="Choose Your Car" />
       </div>
       <div className={`row ${styles.cars}`}>
-        {cars.map((item,id) => (
-          <div key={id}  className="col-12 col-lg-4 col-md-4">
+        {cars.map((item, id) => (
+          <div key={id} className="col-12 col-lg-4 col-md-4">
             <Card
               className={styles.car_card}
               style={{
@@ -73,10 +73,18 @@ function Cars(props) {
                     </p>
                   </p>
                   <div className={styles.btn}>
-                    <Link className={` ${styles.btn_book} `} to="#">
+                    <Link
+                      variant="primary"
+                      onClick={handleShow}
+                      className={` ${styles.btn_book} `}
+                      to="#"
+                    >
                       Book Now
                     </Link>
-                    <Link className={` ${styles.btn_det}`} to={`/cars/${item.id}`}>
+                    <Link
+                      className={` ${styles.btn_det}`}
+                      to={`/cars/${item.id}`}
+                    >
                       Details{" "}
                     </Link>
                   </div>
@@ -86,6 +94,21 @@ function Cars(props) {
           </div>
         ))}
       </div>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>NAme of car</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          500 $
+
+        </Modal.Body>
+        <Modal.Footer>
+        
+          <Button variant="primary" onClick={handleClose}>
+            Send book Request
+          </Button>
+        </Modal.Footer>
+      </Modal>
       <Footer />
     </div>
   );

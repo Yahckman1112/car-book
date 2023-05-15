@@ -9,7 +9,7 @@ import { AiOutlineCar } from "react-icons/ai";
 function Book(props) {
   return (
     <div>
-        <div className={`container ${styles.book}`}>
+      <div className={`container ${styles.book}`}>
         <div className="row">
           <div className="col-12 col-lg-4 col-md-4">
             <form className={styles.form}>
@@ -19,14 +19,10 @@ function Book(props) {
                 placeholder="city, airpott etc..."
                 type="input"
               />
-              <FormInput
-                label="DROP-OFF LOCATION"
-                placeholder="city, airpott etc..."
-                type="input"
-              />
               <FormInput label="PICK-UP DATE" placeholder="Date" type="date" />
-              <FormInput label="DROP-OFF DATE" placeholder="Date" type="date" />
               <FormInput label="PICK-UP TIME" placeholder="time" type="time" />
+              <FormInput label="DROP-OFF DATE" placeholder="Date" type="date" />
+              <FormInput label="DROP-OFF DATE" placeholder="Date" type="time" />
               <Link to="#" className={styles.btn}>
                 Submit
               </Link>
@@ -56,7 +52,6 @@ function Book(props) {
                     <p className={styles.logo_text}>Reserve Your Rental Car</p>
                   </div>
                   <Link to="#" className={styles.logo_btn}>
-                   
                     Reserve Your car
                   </Link>
                 </div>
@@ -65,7 +60,6 @@ function Book(props) {
           </div>
         </div>
       </div>
-      
     </div>
   );
 }
