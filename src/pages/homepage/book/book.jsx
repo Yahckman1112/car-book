@@ -24,7 +24,7 @@ function Book(props) {
               <FormInput label="DROP-OFF DATE" placeholder="Date" type="date" />
               <FormInput label="DROP-OFF DATE" placeholder="Date" type="time" />
               <Link to="#" className={styles.btn}>
-                Submit
+                Search
               </Link>
             </form>
           </div>

@@ -121,3 +121,24 @@
   color: #fff;
   transform: scale(2);
 }
+
+
+
+// card
+
+.card{
+
+    border: 1px solid #e7e7f2;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0,0,0,.06);
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    max-width: 100%;
+    padding: 1rem;
+}
+
+.card_top{
+  display: flex;
+  justify-content: space-between;
+  
+}
