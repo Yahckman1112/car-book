@@ -17,7 +17,7 @@ function PriceCard(props) {
     setLike(!like);
   };
   return (
-    <div className="container">
+    <div className="">
       <div className={styles.card}>
         <div className={styles.card_top}>
           <div style={{ cursor: "pointer" }} onClick={handleLike}>
@@ -51,17 +51,17 @@ function PriceCard(props) {
           <div className="col-12 col-lg-4 col-md-4">
             <div className={styles.card_car_info}>
               <div className={styles.card_car_info_option_1}>
-                <FaUser size={23} /> Seat: 4
+                <FaUser size={23} />Seat: 4
               </div>
 
               <div className={styles.card_car_info_option_2}>
-                <FaSuitcase size={23} /> Baggae: 1
+                <FaSuitcase size={23} /> Baggage: 1 
               </div>
               <div className={styles.card_car_info_option_3}>
                 <GiCarDoor size={23} /> Doors: 2
               </div>
               <div className={styles.card_car_info_option_4}>
-                <TbManualGearbox size={23} /> Manual: 1
+                <TbManualGearbox size={23} /> Manual
               </div>
             </div>
           </div>
@@ -77,6 +77,10 @@ function PriceCard(props) {
                 <p className={styles.price1}>Price for 4days</p>
                 <p className={styles.price2}>#10,000</p>
                 <p className={styles.price3}>#8,500</p>
+
+                <a href="#" className={styles.btn_custom}>
+                    Rent a Car
+                  </a>
               </div>
             </div>
           </div>
