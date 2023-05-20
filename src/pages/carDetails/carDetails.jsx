@@ -10,8 +10,17 @@ import { doc, getDoc } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import { carInfos, tabInfo } from "./carData";
 import Loader from "../../components/Loader/loader";
+import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import RentalModal from "./rentalModal";
 
 function CarDetails(props) {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const [isFetching, setIsFetching] = useState(false);
   const params = useParams();
   const id = params.id;
@@ -100,7 +109,17 @@ function CarDetails(props) {
           </Tab>
         </Tabs>
       </div>
+      <div className={styles.btn_cont}>
+        <Link onClick={handleShow} className={styles.book_btn} to="#">
+          {" "}
+          Continue to Book
+        </Link>
+      </div>
       <Footer />
+
+      <Modal show={show} onHide={handleClose}>
+        <RentalModal />
+      </Modal>
     </div>
   );
 }

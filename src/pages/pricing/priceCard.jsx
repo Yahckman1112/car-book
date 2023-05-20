@@ -31,7 +31,7 @@ useEffect(()=>{
 }, [])
   return (
     <div className="">
-        {cars.map((item=>(
+        {cars.map(((item, index)=>(
             <div className={styles.card}>
          
          
@@ -42,7 +42,7 @@ useEffect(()=>{
               setLike(!like);
             }}
           >
-            {like ? <FcLikePlaceholder size={20} /> : <FcLike size={20} />}
+            {like  ? <FcLikePlaceholder size={20} /> : <FcLike size={20} />}
           </div>
           <div>
             <p className={styles.card_para1}>{item.carName}</p>
@@ -96,10 +96,10 @@ useEffect(()=>{
 
               <div className={styles.pay_price}>
                 <p className={styles.price1}>Price for 4days</p>
-                <p className={styles.price2}>#{item.priceS}</p>
-                <p className={styles.price3}>#{item.price}</p>
+                <p className={styles.price2}>#{item.priceS || 5000}</p>
+                <p className={styles.price3}>#{item.price || 10000}</p>
 
-                <a href="#" className={styles.btn_custom}>
+                <a href={`/cars/${item.id}`} className={styles.btn_custom}>
                   Rent a Car
                 </a>
               </div>

@@ -121,3 +121,25 @@
     padding: 20px;
   }
 }
+
+.book_btn{
+  padding: 1rem 2rem;
+  background-color: $frequent-color;
+  color: $primary-color;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: .5rem;
+  // margin-top: 1.5rem;
+
+
+  &:hover{
+    color: $primary-color;
+  }
+}
+
+.btn_cont{
+  display: flex;
+  margin-bottom: 1rem !important;
+  justify-content: end;
+  padding-right: 2rem;
+}
