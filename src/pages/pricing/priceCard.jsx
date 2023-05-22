@@ -15,16 +15,16 @@ import { fireDB } from "../../firebas";
 function PriceCard(props) {
   const [like, setLike] = useState(true);
   const [cars, setCars] = useState([]);
-  const [carInfo, setCarIfo] = useState({})
+  const [carInfo, setCarIfo] = useState([])
 const carCollectionRef = collection(fireDB, 'carDetails')
 
 useEffect(()=>{
     async function getData(){
         const data = await getDocs(carCollectionRef);
         console.log(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-        setCars(data .docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        setCars(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         // console.log(data .docs.map((doc) => ({ ...doc.data().carInfo })));
-        setCarIfo(data .docs.map((doc) => ({ ...doc.data().carInfo })));
+        setCarIfo(data.docs.map((doc) => ({ ...doc.data().carInfo })));
         
     }
     getData()
@@ -33,7 +33,7 @@ useEffect(()=>{
     <div className="">
         {cars.map(((item, index)=>(
             <div className={styles.card}>
-         
+         {console.log(carInfo)}
          
         <div className={styles.card_top}>
           <div
