@@ -2,10 +2,16 @@ import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import FormInput from "../../components/input/input";
-import styles from './carDetails.module.scss'
+import styles from "./carDetails.module.scss";
 import * as Yup from "yup";
 import { useFormik } from "formik";
+import { addDoc, collection } from "firebase/firestore";
+import { fireDB } from "../../firebas";
+import Swal from "sweetalert2";
+
 function RentalModal(props) {
+  const driverCollectionRef = collection(fireDB, "driver-details");
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -19,7 +25,7 @@ function RentalModal(props) {
       request: Yup.string().required("message is required"),
     });
   };
-
+  //  ad6bd2fd-4377-4a0c-882b-0702f20d231c
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -29,8 +35,34 @@ function RentalModal(props) {
       request: "",
     },
     validationSchema: driverData(),
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: async (values) => {
+      try {
+        
+      await addDoc(driverCollectionRef, {
+        firstName: values.firstName,
+        lastName: values.lastName,
+        email: values.email,
+        phoneNumber: values.phoneNumber,
+        request: values.request,
+      });
+
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Car detail save successfully",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+        
+      } catch (error) {
+        console.log(error);
+        Swal.fire({
+          icon: "error",
+          title: "error",
+          text: "Something went wrong",
+        });
+      }
+
 
       formik.handleReset();
     },
