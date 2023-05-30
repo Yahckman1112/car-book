@@ -8,7 +8,6 @@ import { useFormik } from "formik";
 import { addDoc, collection } from "firebase/firestore";
 import { fireDB } from "../../firebas";
 import Swal from "sweetalert2";
-
 function RentalModal(props) {
   const driverCollectionRef = collection(fireDB, "driver-details");
 
@@ -49,7 +48,7 @@ function RentalModal(props) {
       Swal.fire({
         position: "top-end",
         icon: "success",
-        title: "Car detail save successfully",
+        title: "save successfully",
         showConfirmButton: false,
         timer: 1500,
       });

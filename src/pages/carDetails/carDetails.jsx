@@ -15,6 +15,8 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import RentalModal from "./rentalModal";
 
+// import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+
 function CarDetails(props) {
   const [show, setShow] = useState(false);
 
@@ -40,8 +42,36 @@ function CarDetails(props) {
     getData();
   }, []);
 
+  // const initialOptions = {
+  //   "client-id": "test",
+  //   currency: "USD",
+  //   intent: "capture",
+  //   // "data-client-token": "abc123xyz==",
+  // };
+
   return (
     <div className={styles.detailPage}>
+      {/* <PayPalScriptProvider options={initialOptions}>
+        <PayPalButtons
+          createOrder={(data, actions) => {
+            return actions.order.create({
+              purchase_units: [
+                {
+                  amount: {
+                    value: "12.99",
+                  },
+                },
+              ],
+            });
+          }}
+          onApprove={(data, actions) => {
+            return actions.order.capture().then((details) => {
+              const name = details.payer.name.given_name;
+              alert(`Transaction completed by ${name}`);
+            });
+          }}
+        />
+      </PayPalScriptProvider> */}
       {isFetching && <Loader />}
       <Header />
       <div>
@@ -115,6 +145,7 @@ function CarDetails(props) {
           Continue to Book
         </Link>
       </div>
+
       <Footer />
 
       <Modal show={show} onHide={handleClose}>
