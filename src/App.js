@@ -28,6 +28,7 @@ function App() {
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/admin" element={< AdminAuth />} />
+        <Route path="/admin" element={< AdminAuth />} />
         <Route path="/adminAuth/*" element={< AdminPage />} />
         <Route path="/" element={<Home />} />
       </Routes>

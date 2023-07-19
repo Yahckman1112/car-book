@@ -6,34 +6,34 @@ import { Link } from "react-router-dom";
 import { Card, CardBody } from "reactstrap";
 import Footer from "./../../components/footer/footer";
 import Header from "../../components/header/header";
-import { fireDB } from "../../firebas";
-import { collection, getDocs } from "firebase/firestore";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-
 import Loader from "./../../components/Loader/loader";
+import api from "../../confog.json";
+import { Payment } from "../../util/flutterPayment";
+import axios from "axios";
+
 function Cars(props) {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [cars, setCars] = useState([]);
-  const carCollectionRef = collection(fireDB, "carDetails");
   const [isFetching, setIsFetching] = useState(false);
+
   useEffect(() => {
     async function getData() {
-      setIsFetching(true);
       try {
-        const data = await getDocs(carCollectionRef);
-        setCars(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        setIsFetching(true);
+        const result = await axios.get("http://localhost:8000/api/cars");
+        setCars(result.data);
         setIsFetching(false);
-      } catch (error) {
-        console.log(error.response);
+      } catch (ex) {
+        console.log("error", ex);
+        setIsFetching(false);
       }
     }
-
     getData();
   }, []);
+
+  const handlePayment = Payment(20);
 
   return (
     <div>
@@ -49,7 +49,6 @@ function Cars(props) {
               className={styles.car_card}
               style={{
                 width: "100%",
-                //   borderRadius:'px'
               }}
             >
               <img
@@ -62,28 +61,29 @@ function Cars(props) {
                 <div className={styles.cardBody}>
                   <p>
                     <a href="#" className={styles.card_para}>
-                      {item.carName}
+                      {item.name}
                     </a>
                   </p>
                   <p className={styles.card_para2}>
                     <p className={styles.card_para2_main}>Cheverolette</p>
                     <p className={styles.card_para2_sub}>
-                      ${item.priceDay}
+                      ${item.dayPrice || 10}
                       <span className={styles.day}> /day</span>
                     </p>
                   </p>
                   <div className={styles.btn}>
                     <Link
                       variant="primary"
-                      onClick={handleShow}
+                      onClick={handlePayment}
                       className={` ${styles.btn_book} `}
                       to="#"
                     >
                       Book Now
                     </Link>
+
                     <Link
                       className={` ${styles.btn_det}`}
-                      to={`/cars/${item.id}`}
+                      to={`/cars/${item._id}`}
                     >
                       Details{" "}
                     </Link>
@@ -94,21 +94,7 @@ function Cars(props) {
           </div>
         ))}
       </div>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>NAme of car</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          500 $
 
-        </Modal.Body>
-        <Modal.Footer>
-        
-          <Button variant="primary" onClick={handleClose}>
-            Send book Request
-          </Button>
-        </Modal.Footer>
-      </Modal>
       <Footer />
     </div>
   );

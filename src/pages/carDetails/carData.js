@@ -1,6 +1,10 @@
 import { BsSpeedometer2 } from "react-icons/bs";
 import { GiCarSeat, GiLightningSpanner } from "react-icons/gi";
 import { RiGasStationFill, RiLuggageCartLine } from "react-icons/ri";
+import axios from "axios";
+
+
+
 
 export const carInfos = [
     {

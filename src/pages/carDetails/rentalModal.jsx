@@ -8,7 +8,52 @@ import { useFormik } from "formik";
 import { addDoc, collection } from "firebase/firestore";
 import { fireDB } from "../../firebas";
 import Swal from "sweetalert2";
+import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
+import { redirect } from "react-router-dom";
+
+
 function RentalModal(props) {
+// payment
+const config = {
+  public_key: 'FLWPUBK_TEST-831785520d91c4132b0997dda1a0d8ec-X',
+  tx_ref: Date.now(),
+  amount: 100,
+  currency: 'NGN',
+  payment_options: 'card,mobilemoney,ussd',
+  customer: {
+    email: 'adeniranyaqub565@gmail.com.com',
+    phone_number: '08146283237',
+    name: 'Adeniran YAqub',
+  },
+  customizations: {
+    title: 'Therapy',
+    description: 'Payment for session',
+    logo: 'https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg',
+  },
+};
+
+const fwConfig = {
+  ...config,
+  text: 'Pay with Flutterwave!',
+  callback: (response) => {
+    if(response.status==='successful'){
+      window.location.href='https://github.com/Yahckman1112'
+    }else{
+      console.log('failed');
+    }
+     console.log(response);
+    closePaymentModal() // this will close the modal programmatically
+  },
+  onClose: () => {},
+};
+
+
+
+
+
+
+
+  // levels
   const driverCollectionRef = collection(fireDB, "driver-details");
 
   const [show, setShow] = useState(false);
@@ -135,7 +180,8 @@ function RentalModal(props) {
         </Modal.Body>
         <Modal.Footer>
           <Button type="submit" variant="secondary" onClick={handleClose}>
-            Go to Payment
+            
+           <FlutterWaveButton   {...fwConfig} />
           </Button>
         </Modal.Footer>
       </form>
