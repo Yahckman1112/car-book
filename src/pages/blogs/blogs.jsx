@@ -26,8 +26,8 @@ function Blogs(props) {
         <BannerUsed PageName={"Our Blog"} pageNameSub={"Blog"} />
       </div>
       <div className={styles.blogs}>
-        {blogs.map((item) => (
-          <div className={styles.card}>
+        {blogs.map((item, i) => (
+          <div key={{i}} className={styles.card}>
             <div>
               <img className={styles.image} src={img} alt="Blog Image" />
             </div>

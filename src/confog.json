@@ -1,6 +1,6 @@
 {
     "apiUrl1":"http://localhost:8000/api",
-    "apiUrl": "https://car-book.cyclic.app"
+    "apiUrl": "https://car-book.cyclic.app/api"
 }
 
 

@@ -44,8 +44,8 @@ function Cars(props) {
         <BannerUsed pageNameSub={"Cars"} PageName="Choose Your Car" />
       </div>
       <div className={`row ${styles.cars}`}>
-        {cars.map((item, id) => (
-          <div key={id} className="col-12 col-lg-4 col-md-4">
+        {cars.map((item, i) => (
+          <div key={i} className="col-12 col-lg-4 col-md-4">
             <Card
               className={styles.car_card}
               style={{
