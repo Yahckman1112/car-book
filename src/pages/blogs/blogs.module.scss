@@ -4,6 +4,10 @@
   padding: 5rem;
   height: 130vh;
   margin-bottom: 10px;
+
+  @include responsive(phone){
+    padding: 1rem;
+  }
 }
 
 .image {
@@ -13,6 +17,12 @@
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 0.7rem;
+  @include responsive(phone){
+    height: 50vh;
+  }
+  @include responsive(tab){
+    height: 70vh;
+  }
 }
 
 .para {
@@ -23,6 +33,12 @@
     color: #000000;
     font-size: 2rem;
     font-weight: 600;
+    @include responsive(phone){
+        font-size: 1.5rem;
+      }
+    @include responsive(tab){
+        font-size: 1.8rem;
+      }
   }
 
   &_2 {
@@ -31,6 +47,13 @@
     font-weight: 400;
     color: #999999;
     // width: 70%;
+
+    @include responsive(phone){
+        font-size: 1.3rem;
+      }
+    @include responsive(phone){
+        font-size: 1.5rem;
+      }
   }
 
   &_btn {

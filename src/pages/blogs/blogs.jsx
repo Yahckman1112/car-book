@@ -58,7 +58,6 @@ function Blogs(props) {
 
           <Link to={'#'} className={styles.para_btn}> Read More < BsArrowRight/></Link>
         </div>
-
         </div>
         ))}
       </div>

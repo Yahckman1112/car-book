@@ -15,6 +15,7 @@ import AdminAuth from "./pages/admin/AuthPage/AdminAuth";
 import Dashboard from "./pages/admin/Dashboard/Dashboard";
 import AdminPage from "./pages/admin/admin";
 import Blogs from "./pages/blogs/blogs";
+import Blog from "./pages/blog/blog";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blog" element={<Blog />} />
         <Route path="/admin" element={<AdminAuth />} />
         <Route path="/admin" element={<AdminAuth />} />
         <Route path="/adminAuth/*" element={<AdminPage />} />
