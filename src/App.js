@@ -14,6 +14,7 @@ import Admin from "./pages/admin/admin";
 import AdminAuth from "./pages/admin/AuthPage/AdminAuth";
 import Dashboard from "./pages/admin/Dashboard/Dashboard";
 import AdminPage from "./pages/admin/admin";
+import Blogs from "./pages/blogs/blogs";
 
 function App() {
   return (
@@ -27,9 +28,10 @@ function App() {
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/about" element={<About />} />
-        <Route path="/admin" element={< AdminAuth />} />
-        <Route path="/admin" element={< AdminAuth />} />
-        <Route path="/adminAuth/*" element={< AdminPage />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/admin" element={<AdminAuth />} />
+        <Route path="/admin" element={<AdminAuth />} />
+        <Route path="/adminAuth/*" element={<AdminPage />} />
         <Route path="/" element={<Home />} />
       </Routes>
     </div>
