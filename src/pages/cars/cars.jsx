@@ -10,6 +10,7 @@ import Loader from "./../../components/Loader/loader";
 import api from "../../confog.json";
 import { Payment } from "../../util/flutterPayment";
 import axios from "axios";
+import config from '../../confog.json'
 
 function Cars(props) {
   const [show, setShow] = useState(false);
@@ -22,7 +23,7 @@ function Cars(props) {
     async function getData() {
       try {
         setIsFetching(true);
-        const result = await axios.get("http://localhost:8000/api/cars");
+        const result = await axios.get(`${config.apiUrl}/cars`);
         setCars(result.data);
         setIsFetching(false);
       } catch (ex) {

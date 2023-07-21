@@ -21,34 +21,38 @@ function Coment(props) {
 
     onSubmit: (values) => {
       console.log(values);
+
+      formik.handleReset();
     },
   });
-console.log(formik);
   return (
     <div>
       <h1>Leave a comment</h1>
       <div className={`bg-light ${styles.container}`}>
-        <form  onSubmit={formik.handleSubmit}>
+        <form onSubmit={formik.handleSubmit}>
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">
               Name
             </label>
-            <input 
-            name="name"
-                value={formik.values.name}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-            type="text" class="form-control" placeholder="John Doe" />
+            <input
+              name="name"
+              value={formik.values.name}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              type="text"
+              class="form-control"
+              placeholder="John Doe"
+            />
           </div>
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">
               Email address
             </label>
             <input
-            name='email'
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
+              name="email"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               type="email"
               class="form-control"
               placeholder="name@example.com"
@@ -59,10 +63,10 @@ console.log(formik);
               Message
             </label>
             <textarea
-            name="message"
-                value={formik.values.message}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
+              name="message"
+              value={formik.values.message}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               class="form-control"
               id="exampleFormControlTextarea1"
               rows="3"

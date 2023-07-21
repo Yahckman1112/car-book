@@ -1,14 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BannerUsed from "../../components/banner/banner";
 import Header from "../../components/header/header";
 import styles from "./blogs.module.scss";
 import img from "../../assets/image_1.jpg";
 import { Link } from 'react-router-dom';
 import {BsArrowRight} from 'react-icons/bs'
+import axios from "axios";
+import config from '../../confog.json'
 
 function Blogs(props) {
+
+  const [blogs,setBlogs]= useState([])
+
+
+useEffect(()=>{
+  const getData=async()=>{
+    const {data} = await axios.get(`${config.apiUrl}/blogs`)
+    setBlogs(data)
+  }
+  getData()
+},[])
+
+
   const blogData=[
     {
+      id:1,
       img:img,
       title: 'Why Lead Generation is Key for Growth',
       body:`    A small river named Duden flows by their place and supplies it with
@@ -17,6 +33,7 @@ function Blogs(props) {
     `,
     },
     {
+      id:2,
       img:img,
       title: 'Why Lead Generation is Key for Growth',
       body:`    A small river named Duden flows by their place and supplies it with
@@ -25,6 +42,7 @@ function Blogs(props) {
     `,
     },
     {
+      id:3,
       img:img,
       title: 'Why Lead Generation is Key for Growth',
       body:`    A small river named Duden flows by their place and supplies it with
@@ -40,7 +58,7 @@ function Blogs(props) {
         <BannerUsed PageName={"Our Blog"} pageNameSub={"Blog"} />
       </div>
       <div className={styles.blogs}>
-        {blogData.map(item=>(
+        {blogs.map(item=>(
           
         <div className={styles.card}>
         <div>
@@ -53,10 +71,10 @@ function Blogs(props) {
           </p>
           <p className={styles.para_2}>
           {/* {item.body.length>200? `${item.body.substring(0,200)}....`: item.body} */}
-        {item.body.substring(0,150)+'....'}
+        {item.blog.substring(0,150)+'....'}
           </p>
 
-          <Link to={'#'} className={styles.para_btn}> Read More < BsArrowRight/></Link>
+          <Link to={`/blogs/${item._id}`} className={styles.para_btn}> Read More < BsArrowRight/></Link>
         </div>
         </div>
         ))}
