@@ -25,7 +25,7 @@ function Blog(props) {
     <div>
       <Header />
       <div>
-        <Banner pageNameSub={"Blog > sdsds"} PageName={" Read Our Blog"} />
+        <Banner pageNameSub={`Blog > ${blog.title}`} PageName={" Read Our Blog"} />
       </div>
 
       <div className={styles.blog}>

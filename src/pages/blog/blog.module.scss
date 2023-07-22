@@ -1,7 +1,14 @@
 
-
+@import '../../index.scss';
 .blog{
     padding: 5rem;
+
+    @include responsive(tab){
+        padding: 2rem;
+    }
+    @include responsive(phone){
+        padding: 1rem;
+    }
 }
 
 

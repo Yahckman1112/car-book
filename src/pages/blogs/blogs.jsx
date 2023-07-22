@@ -29,7 +29,7 @@ function Blogs(props) {
         {blogs.map((item, i) => (
           <div key={{i}} className={styles.card}>
             <div>
-              <img className={styles.image} src={img} alt="Blog Image" />
+              <img className={` img-fluid ${styles.image}`} src={img} alt="Blog Image" />
             </div>
 
             <div className={styles.para}>

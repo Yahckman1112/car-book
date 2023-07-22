@@ -88,8 +88,8 @@ function Contact(props) {
   // console.log(formik.values);
   return (
     <div>
-      < Header/>
-    
+      <Header />
+
       <div>
         <BannerUsed pageNameSub="contact" PageName={"Contact Us"} />
       </div>
@@ -170,10 +170,20 @@ function Contact(props) {
           </div>
         </div>
       </div>
+      <div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.2508744244287!2d3.8917257142699344!3d7.547598212505562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1039f1cdb2ed5e7b%3A0x133fbb82df2b6282!2sOdo%20Oba%20Rd%2C%20200136%2C%20Mawniya%2C%20Oyo!5e0!3m2!1sen!2sng!4v1680284579983!5m2!1sen!2sng"
+          width="100%"
+          height="420"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="footer_map__N73KB"
+        ></iframe>
+      </div>
 
       <Footer />
     </div>
   );
 }
-
 export default Contact;
