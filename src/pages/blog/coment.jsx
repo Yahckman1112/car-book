@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./blog.module.scss";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import  axios  from 'axios';
+import config from '../../confog.json'
 
 function Coment(props) {
+
   const validateComment = () => {
     return Yup.object({
       name: Yup.string().required("Enter ur name please"),
@@ -19,12 +22,29 @@ function Coment(props) {
     },
     validationSchema: validateComment(),
 
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit:async (values) => {
+      try {
+    await axios.post(`${config.apiUrl}/messages`, values)
+    alert('Sub,itter succeully')
+    
 
-      formik.handleReset();
+    formik.handleReset();
+        
+      } catch (error) {
+        console.log(error);
+      }
+      
+    
     },
   });
+
+  
+
+
+
+
+
+
   return (
     <div>
       <h1>Leave a comment</h1>

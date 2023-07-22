@@ -7,6 +7,7 @@ import Coment from "./coment";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import config from "../../confog.json";
+import Messages from "./messages";
 
 function Blog(props) {
   const [blog, setBlog] = useState({});
@@ -32,14 +33,11 @@ function Blog(props) {
         <div className="row">
           <div className="col-12 col-lg-8 col-md-8">
             <div className={styles.side_1}>
-              <p className={styles.para_1}>
-               {blog.title}
-         
-               
-              </p>
-              <p className={styles.para_2}>
-              {blog.blog}
-              </p>
+              <p className={styles.para_1}>{blog.title}</p>
+              <p className={styles.para_2}>{blog.blog}</p>
+              <div>
+                <Messages />
+              </div>
 
               <Coment />
             </div>
