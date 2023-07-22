@@ -26,6 +26,7 @@ function Coment(props) {
       try {
     await axios.post(`${config.apiUrl}/messages`, values)
     alert('Sub,itter succeully')
+   window.location.reload(true)
     
 
     formik.handleReset();
