@@ -22,7 +22,7 @@ function Book(props) {
               <FormInput label="PICK-UP DATE" placeholder="Date" type="date" />
               <FormInput label="PICK-UP TIME" placeholder="time" type="time" />
               <FormInput label="DROP-OFF DATE" placeholder="Date" type="date" />
-              <FormInput label="DROP-OFF DATE" placeholder="Date" type="time" />
+              <FormInput label="DROP-OFF TIME" placeholder="Date" type="time" />
               <Link to="#" className={styles.btn}>
                 Search
               </Link>
