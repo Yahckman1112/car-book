@@ -2,16 +2,18 @@ import React, { useEffect } from "react";
 import styles from "./blog.module.scss";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import  axios  from 'axios';
-import config from '../../confog.json'
+import http from '../../services/httpService'
+import config from "../../confog.json";
+import { useState } from "react";
+import Swal from "sweetalert2";
 
 function Coment(props) {
-
+  const [isLoading, setIsLoading]= useState(false)
   const validateComment = () => {
     return Yup.object({
       name: Yup.string().required("Enter ur name please"),
       email: Yup.string().required("Enter ur name please").email(),
-      name: Yup.string().required("Tell us something"),
+      message: Yup.string().required("Tell us something"),
     });
   };
   const formik = useFormik({
@@ -22,29 +24,28 @@ function Coment(props) {
     },
     validationSchema: validateComment(),
 
-    onSubmit:async (values) => {
+    onSubmit: async (values) => {
       try {
-    await axios.post(`${config.apiUrl}/messages`, values)
-    alert('Sub,itter succeully')
-   window.location.reload(true)
-    
+        setIsLoading(true)
+        await http.post(`${config.apiUrl}/messages`, values);
+        Swal.fire({
+          icon: "success",
+          title: "Posted",
+          text:  "Posted Succefully",
+          showCancelButton: true,
+          showConfirmButton: false,
+        });
+        window.location.reload(true);
 
-    formik.handleReset();
-        
+        setIsLoading(false)
+
+        formik.handleReset();
       } catch (error) {
         console.log(error);
+        setIsLoading(false)
       }
-      
-    
     },
   });
-
-  
-
-
-
-
-
 
   return (
     <div>
@@ -64,6 +65,9 @@ function Coment(props) {
               class="form-control"
               placeholder="John Doe"
             />
+            {formik.touched.name && formik.errors.name && (
+              <p className={styles.errorMsg}>{formik.errors.name}</p>
+            )}
           </div>
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">
@@ -78,6 +82,9 @@ function Coment(props) {
               class="form-control"
               placeholder="name@example.com"
             />
+            {formik.touched.email && formik.errors.email && (
+              <p className={styles.errorMsg}>{formik.errors.email}</p>
+            )}
           </div>
           <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">
@@ -92,9 +99,13 @@ function Coment(props) {
               id="exampleFormControlTextarea1"
               rows="3"
             ></textarea>
+
+            {formik.touched.message && formik.errors.message && (
+              <p className={styles.errorMsg}>{formik.errors.message}</p>
+            )}
           </div>
-          <button type="submit" class="btn btn-primary">
-            Send Cooment
+          <button disabled={isLoading} type="submit" class="btn btn-primary">
+            {isLoading?'Sending Comment': 'Send Comment'}
           </button>
         </form>
       </div>

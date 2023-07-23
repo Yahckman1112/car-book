@@ -2,26 +2,46 @@ import React, { useEffect, useState } from "react";
 import styles from "./blog.module.scss";
 import axios from "axios";
 import config from "../../confog.json";
+import Swal from "sweetalert2";
 
 function Messages(props) {
   const [data, setData] = useState([]);
+  const [num, setNum] = useState(0)
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     const getData = async () => {
       try {
+        setIsLoading(true)
         const { data } = await axios.get(`${config.apiUrl}/messages`);
         console.log(data);
+        const num = data.length
+        setNum(num);
         setData(data);
+        setIsLoading(false)
+        
+
       } catch (error) {
-        console.log(error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops....",
+          text: error.response.data || "Fail to upload",
+          showCancelButton: true,
+          showConfirmButton: false,
+        });
       }
     };
 
+
     getData();
   }, []);
+
+
+
   return (
     <div className={styles.msg}>
-      <h2 style={{ marginBottom: "2rem" }}> 6 Messages</h2>
+      {isLoading && 'Loading.....'}
+      <h2 style={{ marginBottom: "2rem" }}> {num} Messages</h2>
       {data.map((item) => (
         <div>
           <div className={styles.msg_para}>
@@ -36,7 +56,6 @@ function Messages(props) {
           </div>
         </div>
       ))}
-   
     </div>
   );
 }

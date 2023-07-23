@@ -12,35 +12,45 @@ import pay3 from "./../../assets/card_3.webp";
 import api from "../../confog.json";
 import axios from "axios";
 import { useFlutterwave, closePaymentModal } from "flutterwave-react-v3";
-import { Link } from 'react-router-dom';
-import {Payment} from '../../util/flutterPayment'
+import { Link } from "react-router-dom";
+import { Payment } from "../../util/flutterPayment";
+import Swal from "sweetalert2";
+import Loader from "../../components/Loader/loader";
 
 function PriceCard(props) {
-  const currentUser = {
-    name: "Adewale",
-    phone: "09107812544",
-    gmail: "adewale@gmail.com",
-  };
-
   const [like, setLike] = useState(true);
   const [cars, setCars] = useState([]);
-  const [price, setPrice]= useState('')
+  const [price, setPrice] = useState("");
+  const [isFetching, setIsFetching] = useState(false);
 
-  useEffect(() => {
-    async function getData() {
-      const { data } = await axios.get(`${api.apiUrl}/cars`);
-      console.log(data);
-      setCars(data);
-      const price = data.map(data=>(data.weekPrice))
-      setPrice(price)
-    }
-    getData();
-  }, []);
+  try {
+    useEffect(() => {
+      async function getData() {
+        setIsFetching(true);
+        const { data } = await axios.get(`${api.apiUrl}/cars`);
+        setCars(data);
+        const price = data.map((data) => data.weekPrice);
+        setPrice(price);
 
-  const handlePayment = Payment(price)
+        setIsFetching(false);
+      }
+      getData();
+    }, []);
+  } catch (error) {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: error || "Something went wrong!",
+    });
+    setIsFetching(false);
+  }
+
+  const handlePayment = Payment(price);
 
   return (
     <div className="">
+
+      {isFetching && <Loader />}
       {cars.map((item, index) => (
         <div key={item._id} className={styles.card}>
           <div className={styles.card_top}>
@@ -109,17 +119,21 @@ function PriceCard(props) {
                   <p className={styles.price2}>#{item.strike || 5000}</p>
                   <p className={styles.price3}>#{item.weekPrice || 10000}</p>
 
-               
-
-                  <Link to="#" onClick={handlePayment}  className={styles.btn_custom}> Rent a Car</Link>
+                  <Link
+                    to="#"
+                    onClick={handlePayment}
+                    className={styles.btn_custom}
+                  >
+                    {" "}
+                    Rent a Car
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
         </div>
       ))}
-                  {/* <Link to="#"  className={styles.btn_custom}> Rent a Car</Link> */}
-
+      {/* <Link to="#"  className={styles.btn_custom}> Rent a Car</Link> */}
     </div>
   );
 }

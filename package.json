@@ -30,7 +30,7 @@
     "react-scripts": "5.0.1",
     "reactstrap": "^9.1.5",
     "sass": "^1.57.1",
-    "sweetalert2": "^11.7.2",
+    "sweetalert2": "^11.7.19",
     "swiper": "^8.4.6",
     "victory": "^36.6.8",
     "web-vitals": "^2.1.0",

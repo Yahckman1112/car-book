@@ -5,16 +5,32 @@ import styles from "./blogs.module.scss";
 import img from "../../assets/image_1.jpg";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
-import axios from "axios";
+// import axios from "axios";
+import http from '../../services/httpService'
 import config from "../../confog.json";
+import Loader from "../../components/Loader/loader";
+import Swal from "sweetalert2";
+
 
 function Blogs(props) {
   const [blogs, setBlogs] = useState([]);
+  const [isFetching, setIsFetching] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axios.get(`${config.apiUrl}/blogs`);
-      setBlogs(data);
+      try {
+        setIsFetching(true);
+        const { data } = await http.get(`${config.apiUrl}/blogs`);
+        setBlogs(data);
+
+        setIsFetching(false);
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops....",
+          text: error.response.data || "Fail to get",
+        });
+      }
     };
     getData();
   }, []);
@@ -22,14 +38,20 @@ function Blogs(props) {
   return (
     <div>
       <div>
+        {isFetching && <Loader />}
         <Header />
+
         <BannerUsed PageName={"Our Blog"} pageNameSub={"Blog"} />
       </div>
       <div className={styles.blogs}>
         {blogs.map((item, i) => (
-          <div key={{i}} className={styles.card}>
+          <div key={{ i }} className={styles.card}>
             <div>
-              <img className={` img-fluid ${styles.image}`} src={img} alt="Blog Image" />
+              <img
+                className={` img-fluid ${styles.image}`}
+                src={img}
+                alt="Blog Image"
+              />
             </div>
 
             <div className={styles.para}>
