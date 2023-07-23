@@ -23,7 +23,7 @@ function Book(props) {
               <FormInput label="PICK-UP TIME" placeholder="time" type="time" />
               <FormInput label="DROP-OFF DATE" placeholder="Date" type="date" />
               <FormInput label="DROP-OFF TIME" placeholder="Date" type="time" />
-              <Link to="#" className={styles.btn}>
+              <Link to="/cars" className={styles.btn}>
                 Search
               </Link>
             </form>
@@ -51,7 +51,7 @@ function Book(props) {
                     <AiOutlineCar className={`${styles.logos}`} />
                     <p className={styles.logo_text}>Reserve Your Rental Car</p>
                   </div>
-                  <Link to="#" className={styles.logo_btn}>
+                  <Link to="/cars" className={styles.logo_btn}>
                     Reserve Your car
                   </Link>
                 </div>
