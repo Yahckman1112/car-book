@@ -49,7 +49,7 @@ function Blogs(props) {
             <div>
               <img
                 className={` img-fluid ${styles.image}`}
-                src={img}
+                src={item.image}
                 alt="Blog Image"
               />
             </div>
@@ -58,7 +58,7 @@ function Blogs(props) {
               <p className={styles.para_1}>{item.title}</p>
               <p className={styles.para_2}>
                 {/* {item.body.length>200? `${item.body.substring(0,200)}....`: item.body} */}
-                {item.blog.substring(0, 150) + "...."}
+                {item.blog.substring(0, 120) + "...."}
               </p>
 
               <Link to={`/blogs/${item._id}`} className={styles.para_btn}>

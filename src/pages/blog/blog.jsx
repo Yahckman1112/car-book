@@ -29,7 +29,7 @@ function Blog(props) {
       </div>
 
       <div className={styles.blog}>
-        <img src={img} className={`img-fluid ${styles.img}`} alt="" />
+        <img src={blog.image} className={`img-fluid ${styles.img}`} alt="" />
         <div className="row">
           <div className="col-12 col-lg-8 col-md-8">
             <div className={styles.side_1}>

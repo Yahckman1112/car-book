@@ -11,7 +11,6 @@ import pay2 from "./../../assets/card_2.webp";
 import pay3 from "./../../assets/card_3.webp";
 import api from "../../confog.json";
 import axios from "axios";
-import { useFlutterwave, closePaymentModal } from "flutterwave-react-v3";
 import { Link } from "react-router-dom";
 import { Payment } from "../../util/flutterPayment";
 import Swal from "sweetalert2";
@@ -20,7 +19,7 @@ import Loader from "../../components/Loader/loader";
 function PriceCard(props) {
   const [like, setLike] = useState(true);
   const [cars, setCars] = useState([]);
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
 
   try {
@@ -29,8 +28,8 @@ function PriceCard(props) {
         setIsFetching(true);
         const { data } = await axios.get(`${api.apiUrl}/cars`);
         setCars(data);
-        const price = data.map((data) => data.weekPrice);
-        setPrice(price);
+        // const price = data.map((data) => data.weekPrice);
+        // setPrice(price);
 
         setIsFetching(false);
       }
@@ -45,12 +44,20 @@ function PriceCard(props) {
     setIsFetching(false);
   }
 
-  const handlePayment = Payment(price);
+ const payment= Payment(60)
+
+  // const handlePayment = (selectedPrice) => {
+  //   // Handle the payment for the selectedPrice here.
+  //   console.log("Selected price:", selectedPrice);
+  //   // pay(selectedPrice)
+
+  //   // Replace the above console.log with your payment logic.
+  // };
 
   return (
     <div className="">
 
-      {isFetching && <Loader />}
+      {/* {isFetching && <Loader />} */}
       {cars.map((item, index) => (
         <div key={item._id} className={styles.card}>
           <div className={styles.card_top}>
@@ -120,8 +127,9 @@ function PriceCard(props) {
                   <p className={styles.price3}>#{item.weekPrice || 10000}</p>
 
                   <Link
-                    to="#"
-                    onClick={handlePayment}
+                    // to="#"
+                    // onClick={()=>handlePayment(item.weekPrice)}
+                    onClick={payment}
                     className={styles.btn_custom}
                   >
                     {" "}

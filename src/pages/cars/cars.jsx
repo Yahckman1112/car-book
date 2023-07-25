@@ -17,6 +17,7 @@ function Cars(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [cars, setCars] = useState([]);
+  const [price, setPrice] = useState(0)
   const [isFetching, setIsFetching] = useState(false);
 
   useEffect(() => {
@@ -25,6 +26,9 @@ function Cars(props) {
         setIsFetching(true);
         const result = await axios.get(`${config.apiUrl}/cars`);
         setCars(result.data);
+        const price = result.data.map(item=>(item.dayPrice))
+        setPrice(price);
+        console.log(price);
         setIsFetching(false);
       } catch (ex) {
         console.log("error", ex);
@@ -34,7 +38,7 @@ function Cars(props) {
     getData();
   }, []);
 
-  const handlePayment = Payment(20);
+  const handlePayment = Payment(23);
 
   return (
     <div>
@@ -54,7 +58,7 @@ function Cars(props) {
             >
               <img
                 alt="Card cap"
-                src={carImage}
+                src={item.image}
                 max-width="100%"
                 style={{ borderRadius: "8px" }}
               />

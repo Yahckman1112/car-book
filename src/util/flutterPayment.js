@@ -31,7 +31,7 @@ export function Payment(price){
       callback: (response) => {
         console.log(response);
         if (response.status === "successful") {
-          window.location.href = "https://calendly.com/friendnpaldev/flutter";
+          window.location.href = "/";
         } else {
           alert("Transaction fail");
         }

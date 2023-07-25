@@ -14,6 +14,8 @@ import axios from "axios";
 import { Payment } from "../../util/flutterPayment";
 
 function CarDetails(props) {
+
+
   const [isFetching, setIsFetching] = useState(false);
   const params = useParams();
   const id = params.id;
@@ -42,13 +44,15 @@ function CarDetails(props) {
 
   return (
     <div className={styles.detailPage}>
-      {isFetching && <Loader />}
+      {/* {isFetching && <Loader />} */}
       <Header />
       <div>
         <BannerUsed pageNameSub="Car Details" PageName="Car Details" />
       </div>
 
-      {/* <div className={styles.upper_backgroung}></div> */}
+      <div className='container' >
+        <img className={`${styles.upper_backgroung} img-fluid`} src={car.image} alt="" />
+      </div>
 
       <div className={styles.features}>
         <p className={styles.para1}>Chevrolette</p>

@@ -4,13 +4,13 @@
 }
 .upper_backgroung {
   background-color: $frequent-color;
-  background-image: url("./../../assets/bg_1.jpg");
+  // background-image: url("./../../assets/bg_1.jpg");
   background-size: cover;
   background-position: center;
-  height: 100vh;
-  margin: 90px;
+ 
   border-radius: 10px;
   margin-bottom: 20px;
+  margin-top: 20px;
 
   @include responsive(phone) {
     margin: 20px;
