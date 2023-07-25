@@ -12,6 +12,7 @@
 
 .image {
   width: 100%;
+  height: 70vh;
   border-radius: 0.7rem;
   @include responsive(phone){
     height: 50vh;

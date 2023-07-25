@@ -57,7 +57,7 @@ function PriceCard(props) {
   return (
     <div className="">
 
-      {/* {isFetching && <Loader />} */}
+      {isFetching && <Loader />}
       {cars.map((item, index) => (
         <div key={item._id} className={styles.card}>
           <div className={styles.card_top}>
